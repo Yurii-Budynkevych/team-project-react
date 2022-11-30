@@ -9,8 +9,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+
 import storage from 'redux-persist/lib/storage';
 import authReducer from './Auth/authSlice';
+import transactionsSlice from './Transactions/transactionsSlice';
 
 const persistConfig = {
   key: 'token',
@@ -23,6 +25,7 @@ const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
+    transactions: transactionsSlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

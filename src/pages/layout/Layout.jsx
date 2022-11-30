@@ -11,7 +11,7 @@ export const Layout = () => {
 
   return (
     <>
-      <Box as="header" position="fixed" top="0" width="100%" py={5}>
+      <Box as="header" top="0" width="100%" py={5}>
         <Box px={4} display="flex" justifyContent="space-between">
           <Logo />
           {isLoggedIn && <UserMenu />}
