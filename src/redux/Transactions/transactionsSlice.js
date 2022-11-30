@@ -1,4 +1,8 @@
-import { getCategories, addTransaction } from './transactionsOperations';
+import {
+  getCategories,
+  addTransaction,
+  getTransactions,
+} from './transactionsOperations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -16,6 +20,9 @@ const transactionsSlice = createSlice({
     },
     [addTransaction.fulfilled](state, action) {
       // state.transactions.push(action.payload);
+    },
+    [getTransactions.fulfilled](state, action) {
+      state.transactions = action.payload;
     },
   },
 });

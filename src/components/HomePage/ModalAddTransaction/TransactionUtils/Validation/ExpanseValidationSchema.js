@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import parseDateString from './parseDateString';
+import parseDateString from '../parseDateString';
 
 export const ExpanseValidationSchema = Yup.object().shape({
   categoryId: Yup.string().required('Required'),

@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import parseDateString from './parseDateString';
+import parseDateString from '../parseDateString';
 
 export const IncomeValidationSchema = Yup.object().shape({
   amount: Yup.number().min(0).required('Required'),
