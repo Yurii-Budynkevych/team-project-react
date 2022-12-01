@@ -29,6 +29,7 @@
   right: 40px;
 }
 
+
 .modalButton:hover,
 .modalButton:focus {
   cursor: pointer;
@@ -128,3 +129,9 @@
 .expence {
   color: rgba(255, 101, 150, 1);
 }
+
+.title{
+font-family: 'circeBold';
+font-weight: 700;
+}
+
