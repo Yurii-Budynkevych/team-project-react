@@ -1,9 +1,11 @@
 import Datetime from 'react-datetime';
 import moment from 'moment';
 
-export const CURRENT_DATE = `${new Date().getFullYear()}-${
+export const CURRENT_DATE = `${new Date().getFullYear()}-${(
   new Date().getMonth() + 1
-}-${new Date().getDate()}`;
+)
+  .toString()
+  .padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
 
 const DATE_FORMAT = 'YYYY-MM-DD';
 

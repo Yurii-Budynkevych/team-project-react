@@ -5,6 +5,7 @@ import { Formik, Form, Field } from 'formik';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+import close from '../../../img/close.svg';
 import css from './ModalAddTransaction.module.css';
 import { addTransaction } from '../../../redux/Transactions/transactionsOperations';
 import {
@@ -63,7 +64,8 @@ export default function ModalAddTransaction({ showModalToggle }) {
                   currentType === 'INCOME'
                     ? '063f1132-ba5d-42b4-951d-44011ca46262'
                     : values.categoryId,
-                amount: values.amount,
+                amount:
+                  currentType === 'INCOME' ? values.amount : values.amount * -1,
                 comment: values.comment,
                 type: values.type,
                 transactionDate: values.transactionDate,
@@ -175,7 +177,7 @@ export default function ModalAddTransaction({ showModalToggle }) {
             showModalToggle();
           }}
         >
-          X
+          <img src={close} alt="close" />
         </button>
       </div>
     </div>

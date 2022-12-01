@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 export default function notify(errors, values, currentType) {
   if (values.amount === '' || errors.amount) {
     toast(
-      "You need to enter the amount of the transaction. It's must be a number. If transaction is expense, it should be negative"
+      "You need to enter the amount of the transaction. It's must be a number"
     );
   } else if (values.transactionDate === '' || errors.transactionDate) {
     toast(

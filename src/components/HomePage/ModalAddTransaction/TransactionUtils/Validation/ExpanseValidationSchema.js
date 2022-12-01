@@ -3,7 +3,7 @@ import parseDateString from '../parseDateString';
 
 export const ExpanseValidationSchema = Yup.object().shape({
   categoryId: Yup.string().required('Required'),
-  amount: Yup.number().max(0).required('Required'),
+  amount: Yup.number().required('Required'),
   type: Yup.string().required('Required'),
   transactionDate: Yup.date()
     .transform(parseDateString)
