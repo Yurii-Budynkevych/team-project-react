@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import css from './HomePage.module.css';
 import { getTransactions } from '../../redux/Transactions/transactionsOperations';
 import HomeTab from './HomeTab/HomeTab';
+import { Navigation } from '../Navigation/Navigation';
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -21,8 +22,7 @@ export default function HomePage() {
   return (
     <section className={css.section}>
       <div className={css.leftSide}>
-        <h1>NAVIGATION</h1>
-        <h1>BALANCE</h1>
+        <Navigation />
         <h1>CURRENCY</h1>
       </div>
       <div className={css.tableWrapper}>
