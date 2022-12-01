@@ -4,7 +4,7 @@ import {
   getTransactions,
 } from './transactionsOperations';
 
-const { createSlice } = require('@reduxjs/toolkit');
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   transactions: [],
@@ -22,7 +22,15 @@ const transactionsSlice = createSlice({
       // state.transactions.push(action.payload);
     },
     [getTransactions.fulfilled](state, action) {
-      state.transactions = action.payload;
+      const { payload } = action;
+      state.transactions = payload.sort(
+        (firstTransaction, secondTransaction) => {
+          return (
+            new Date(secondTransaction.transactionDate) -
+            new Date(firstTransaction.transactionDate)
+          );
+        }
+      );
     },
   },
 });

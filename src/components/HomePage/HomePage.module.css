@@ -1,14 +1,137 @@
 .section {
   display: flex;
   position: relative;
+  background-image: url('../../img/bg-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+  height: calc(100vh - 109px);
+  overflow: hidden;
 }
+
+.leftSide {
+  width: 465px;
+  border-right: 1px solid #e7e5f2;
+  border-left: none;
+}
+
 .modalButton {
-  position: absolute;
+  position: fixed;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #24cca7;
+  color: #fff;
+  font-size: 30px;
+  box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
   bottom: 40px;
   right: 40px;
+}
+
+
+.modalButton:hover,
+.modalButton:focus {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.tableWrapper {
+  margin-top: 45px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tableHeaderWrapper {
+  border-radius: 30px;
+
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
+.tableRawsWrapper {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+.tableRawsWrapper::-webkit-scrollbar {
+  width: 10px;
+}
+.tableRawsWrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.tableRawsWrapper::-webkit-scrollbar-thumb {
+  background-color: #c5baff;
+  outline: 1px solid slategrey;
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.table {
+  width: 710px;
+  font-family: 'circeRegular';
+  font-weight: 400;
+}
+
+.tableHead {
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  height: 60px;
+}
+
+.thDate {
+  width: 85px;
+}
+.thType {
+  width: 40px;
+}
+.thCategory {
+  width: 160px;
+}
+.thComment {
+  width: 125px;
+}
+.thSum {
+  width: 140px;
+}
+.thBalance {
+  width: 140px;
+}
+
+.tr {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.td,
+.income,
+.expence {
+  border-bottom: 1px solid #dcdcdf;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.income {
+  color: rgba(36, 204, 167, 1);
+}
+
+.expence {
+  color: rgba(255, 101, 150, 1);
 }
 
 .title{
 font-family: 'circeBold';
 font-weight: 700;
 }
+
