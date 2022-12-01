@@ -5,6 +5,7 @@ import { selectIsLoggedIn } from '../redux/Auth/authSelectors';
 import PrivateRoute from '../redux/Auth/PrivateRoute';
 import PublicRoute from '../redux/Auth/PublicRoute';
 import HomePage from './HomePage/HomePage';
+import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom';
@@ -65,7 +66,14 @@ export const App = () => {
           </PrivateRoute>
         }
       /> */}
-      <Route path="*" element={<Navigate to={'/'} />} />
+      <Route
+        path="*"
+        element={
+          <PublicRoute>
+            <ErrorPathPage />
+          </PublicRoute>
+        }
+      />
     </Routes>
   );
 };
