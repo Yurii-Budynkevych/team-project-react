@@ -1,8 +1,8 @@
 {
-  "name": "tm-project-react",
+  "name": "team-project-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://arturmand.github.io/tm-project-react/",
+  "homepage": "https://arturmand.github.io/team-project-react/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.3",
