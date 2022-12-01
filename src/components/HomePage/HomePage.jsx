@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <section className={css.section}>
       <div>
-        <h1>NAVIGATION</h1>
+        <h1 className={css.title}>NAVIGATION</h1>
         <h1>BALANCE</h1>
         <h1>CURRENCY</h1>
       </div>
