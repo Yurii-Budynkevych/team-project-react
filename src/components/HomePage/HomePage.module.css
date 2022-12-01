@@ -1,0 +1,9 @@
+.section {
+  display: flex;
+  position: relative;
+}
+.modalButton {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
