@@ -1,79 +1,61 @@
 import { Layout } from 'pages/layout/Layout';
 import LoginPage from 'pages/loginPage/Login';
 import RegisterPage from 'pages/registerPage/Register';
-import { selectIsLoggedIn } from '../redux/Auth/authSelectors';
-import PrivateRoute from '../redux/Auth/PrivateRoute';
-import PublicRoute from '../redux/Auth/PublicRoute';
+import { selectIsToken, selectIsRefreshing } from '../redux/Auth/authSelectors';
+import { PublicRoute } from '../utils/routes/PublicRoute';
+import { PrivateRoute } from '../utils/routes/PrivateRoute';
 import HomePage from './HomePage/HomePage';
 import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { refresh } from 'redux/Auth/authOperations';
 
 export const App = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  const isToken = useSelector(selectIsToken);
+  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refresh());
-  }, [dispatch]);
+    isToken && dispatch(refresh());
+  }, [dispatch, isToken]);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          isLoggedIn ? (
-            <Navigate to={'/homePage'} />
-          ) : (
-            <Navigate to={'/login'} />
-          )
-        }
-      />
-      <Route
-        path="login"
-        element={
-          <PublicRoute>
-            <LoginPage />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="register"
-        element={
-          <PublicRoute>
-            <RegisterPage />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="homePage"
-        element={
-          <PrivateRoute>
-            <Layout />
-            <HomePage />
-          </PrivateRoute>
-        }
-      />
-      {/* <Route
-        path="statisticsPage"
-        element={
-          <PrivateRoute>
-            <Layout />
-            <StatisticsPage />
-          </PrivateRoute>
-        }
-      /> */}
-      <Route
-        path="*"
-        element={
-          <PublicRoute>
-            <ErrorPathPage />
-          </PublicRoute>
-        }
-      />
-    </Routes>
+    <>
+      {!isRefreshing && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              path="home"
+              element={
+                <PrivateRoute redirectTo="/login" component={<HomePage />} />
+              }
+            />
+
+          </Route>
+          <Route
+            path="login"
+            element={
+              <PublicRoute redirectTo="/home" component={<LoginPage />} />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute redirectTo="/home" component={<RegisterPage />} />
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <PublicRoute>
+                <ErrorPathPage />
+              </PublicRoute>
+            }
+          />
+        </Routes>
+      )}
+    </>
   );
 };

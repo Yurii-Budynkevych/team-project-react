@@ -1,4 +1,5 @@
 import { Balance } from 'components/Balance/Balance';
+import { Outlet } from 'react-router-dom';
 import {
   DivMob,
   Image,
@@ -40,6 +41,7 @@ export const Navigation = () => {
           <img src="https://via.placeholder.com/38x38" alt="" />
         </StyledLinkMob>
       </DivMob>
+      <Outlet/>
     </>
   );
 };
