@@ -3,3 +3,4 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 export const selectIsToken = state => state.auth.token;
 
 export const selectUsername = state => state.auth.user.username;
+export const selectUseBalance = state => state.auth.user.balance;
