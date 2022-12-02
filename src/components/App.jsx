@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { refresh } from 'redux/Auth/authOperations';
+import { DiagramTab } from './DiagramTab/DiagramTab';
 
 export const App = () => {
   const isToken = useSelector(selectIsToken);
@@ -26,12 +27,17 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
-              path="home"
+              index
               element={
                 <PrivateRoute redirectTo="/login" component={<HomePage />} />
               }
             />
-
+            <Route
+              path="statistics"
+              element={
+                <PrivateRoute redirectTo="/login" component={<DiagramTab />} />
+              }
+            />
           </Route>
           <Route
             path="login"

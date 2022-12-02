@@ -9,17 +9,19 @@ import {
   StyledLinkMob,
   Text,
 } from './Navigation.styled';
+
+
 export const Navigation = () => {
   return (
     <>
       <Nav>
-        <StyledLink to="/home">
+        <StyledLink to="homePage">
           <NavStyled>
             <Image src="https://via.placeholder.com/18x18" alt="IconHome" />
             <Text>Home</Text>
           </NavStyled>
         </StyledLink>
-        <StyledLink to="/diagram">
+        <StyledLink to="statistics">
           <NavStyled>
             <Image
               src="https://via.placeholder.com/18x18"
@@ -41,7 +43,7 @@ export const Navigation = () => {
           <img src="https://via.placeholder.com/38x38" alt="" />
         </StyledLinkMob>
       </DivMob>
-      <Outlet/>
+<Outlet/>
     </>
   );
 };
