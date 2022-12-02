@@ -1,5 +1,5 @@
-import { Box } from 'components/Box/Box';
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { Box } from '../../components/Box/Box';
+import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 
 export default function RegisterPage() {
   return (
