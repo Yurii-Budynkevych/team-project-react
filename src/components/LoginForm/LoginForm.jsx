@@ -68,7 +68,6 @@ export const LoginForm = () => {
                   name="email"
                   placeholder="E-mail"
                   onChange={handleChange}
-                  
                   onBlur={handleBlur}
                   value={values.email}
                   className={touched.email && errors.email ? 'error' : null}
