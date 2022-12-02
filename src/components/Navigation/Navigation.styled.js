@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { breakpoints } from '../../utils/sizes';
 export const NavStyled = styled.div`
@@ -10,15 +10,19 @@ export const Image = styled.img`
   height: 18px;
 `;
 export const Text = styled.p`
-  font-family: 'Poppins';
-  font-weight: 400;
+  font-family: 'poppins';
+
   font-size: 18px;
   line-height: 0.6;
   margin-left: 20px;
   color: #000000;
 `;
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   text-decoration: none;
+  font-weight: 400;
+  &.active {
+    font-weight: 700;
+  }
 `;
 export const Nav = styled.nav`
   display: none;
@@ -33,6 +37,6 @@ export const DivMob = styled.div`
     display: none;
   }
 `;
-export const StyledLinkMob = styled(Link)`
+export const StyledLinkMob = styled(NavLink)`
   text-decoration: none;
 `;
