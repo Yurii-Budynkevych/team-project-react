@@ -31,6 +31,7 @@ export const Navigation = () => {
             <Text>Statistics</Text>
           </NavStyled>
         </StyledLink>
+
         <Balance />
       </Nav>
 
