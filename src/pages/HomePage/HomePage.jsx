@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import css from './HomePage.module.css';
 import { getTransactions } from '../../redux/Transactions/transactionsOperations';
 import HomeTab from '../../components/HomeTab/HomeTab';
-import { Navigation } from '../../components/Navigation/Navigation';
 import addTransaction from '../../img/transaction-modal-open.svg';
 import { createSaveRoute } from '../../redux/Auth/authSlice';
 export default function HomePage() {
@@ -15,17 +14,18 @@ export default function HomePage() {
 
   const showModalToggle = () => {
     setIsModalAddTransactionOpen(!isModalAddTransactionOpen);
-    dispatch(createSaveRoute({ save: false }));
+
   };
 
   useEffect(() => {
+    dispatch(createSaveRoute({ save: false }));
     dispatch(getTransactions());
   }, [dispatch]);
   return (
     <>
       <section className={css.section}>
         <div className={css.leftSide}>
-          <Navigation />
+
           <h1>CURRENCY</h1>
         </div>
         <div className={css.tableWrapper}>

@@ -6,7 +6,7 @@ import { PrivateRoute } from '../utils/routes/PrivateRoute';
 import { Layout } from 'pages/layout/Layout';
 import LoginPage from 'pages/loginPage/Login';
 import RegisterPage from 'pages/registerPage/Register';
-import HomePage from './HomePage/HomePage';
+import HomePage from '../pages/HomePage/HomePage';
 import { DiagramTab } from './DiagramTab/DiagramTab';
 import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
 import { refresh } from 'redux/Auth/authOperations';
@@ -41,7 +41,7 @@ export const App = () => {
             <Route
               path="home"
               element={
-                <PrivateRoute redirectTo="/login" component={<HomePage />} />
+                <PrivateRoute redirectTo={isSaveRoute ? '/statistics' : '/login'} component={<HomePage />} />
               }
             />
             <Route
@@ -51,28 +51,12 @@ export const App = () => {
               }
             />
           </Route>
-          <Route
-            path="login"
-            element={
-              <PrivateRoute redirectTo="/home" component={<HomePage />} />
-            }
-          />
-          <Route
-            path="register"
-            element={
-              <PublicRoute
-                redirectTo="/"
-                component={<RegisterPage />}
-                restricted
-              />
-            }
-          />
 
           <Route
             path="login"
             element={
               <PublicRoute
-                redirectTo={isSaveRoute ? '/statistics' : '/home'}
+                redirectTo='/home'
                 component={<LoginPage />}
               />
             }
