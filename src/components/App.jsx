@@ -1,25 +1,28 @@
-import { Layout } from 'pages/layout/Layout';
-import LoginPage from 'pages/loginPage/Login';
-import RegisterPage from 'pages/registerPage/Register';
-import { selectIsToken, selectIsRefreshing } from '../redux/Auth/authSelectors';
-import { PublicRoute } from '../utils/routes/PublicRoute';
-import { PrivateRoute } from '../utils/routes/PrivateRoute';
-import HomePage from './HomePage/HomePage';
-import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { refresh } from 'redux/Auth/authOperations';
+import { PublicRoute } from '../utils/routes/PublicRoute';
+import { PrivateRoute } from '../utils/routes/PrivateRoute';
+import { Layout } from 'pages/layout/Layout';
+import LoginPage from 'pages/loginPage/Login';
+import RegisterPage from 'pages/registerPage/Register';
+import HomePage from './HomePage/HomePage';
 import { DiagramTab } from './DiagramTab/DiagramTab';
+import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
+import { refresh } from 'redux/Auth/authOperations';
+import {
+  selectIsSaveRoute,
+  selectIsRefreshing,
+} from '../redux/Auth/authSelectors';
 
 export const App = () => {
-  const isToken = useSelector(selectIsToken);
+  const isSaveRoute = useSelector(selectIsSaveRoute);
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    isToken && dispatch(refresh());
-  }, [dispatch, isToken]);
+    dispatch(refresh());
+  }, [dispatch]);
 
   return (
     <>
@@ -29,7 +32,7 @@ export const App = () => {
             <Route
               index
               element={
-                <PrivateRoute redirectTo="/login" component={<HomePage />} />
+                <PrivateRoute redirectTo="/home" component={<HomePage />} />
               }
             />
             <Route
@@ -42,7 +45,10 @@ export const App = () => {
           <Route
             path="login"
             element={
-              <PublicRoute redirectTo="/home" component={<LoginPage />} />
+              <PublicRoute
+                redirectTo={isSaveRoute ? '/statistics' : '/home'}
+                component={<LoginPage />}
+              />
             }
           />
           <Route

@@ -7,6 +7,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isSaveRoute: true,
 };
 const loginOrRegisterFulfilled = (state, { payload }) => {
   state.user = payload.user;
@@ -35,6 +36,11 @@ const refreshRejected = state => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    createSaveRoute: (state, { payload }) => {
+      state.isSaveRoute = payload.save;
+    },
+  },
   extraReducers: build =>
     build
       .addCase(register.fulfilled, loginOrRegisterFulfilled)
@@ -46,3 +52,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { createSaveRoute } = authSlice.actions;
