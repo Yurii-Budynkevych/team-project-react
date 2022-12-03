@@ -12,6 +12,7 @@ import {
   StyledLink,
   StyledLinkMob,
   Text,
+  ImageMob,
 } from './Navigation.styled';
 
 export const Navigation = () => {
@@ -35,16 +36,15 @@ export const Navigation = () => {
 
       <DivMob>
         <StyledLinkMob to="home">
-          <img src={homeMob} alt="" />
+          <ImageMob src={homeMob} alt="" />
         </StyledLinkMob>
-        <StyledLinkMob to="diagram">
-          <img src={statisticsMob} alt="" />
+        <StyledLinkMob to="statistics">
+          <ImageMob src={statisticsMob} alt="" />
         </StyledLinkMob>
         <StyledLinkMob to="currency">
-          <img src={currencyMob} alt="" />
+          <ImageMob src={currencyMob} alt="" />
         </StyledLinkMob>
       </DivMob>
-
     </>
   );
 };
