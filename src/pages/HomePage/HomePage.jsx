@@ -5,7 +5,7 @@ import css from './HomePage.module.css';
 import { getTransactions } from '../../redux/Transactions/transactionsOperations';
 import HomeTab from '../../components/HomeTab/HomeTab';
 import addTransaction from '../../img/transaction-modal-open.svg';
-import { createSaveRoute } from '../../redux/Auth/authSlice';
+import { createSaveRoute,createIsHomePage } from '../../redux/Auth/authSlice';
 export default function HomePage() {
   const dispatch = useDispatch();
 
@@ -18,7 +18,8 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    dispatch(createSaveRoute({ save: false }));
+    dispatch(createSaveRoute({ save: true }));
+    dispatch(createIsHomePage({ isHome: true }));
     dispatch(getTransactions());
   }, [dispatch]);
   return (

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,Navigate  } from 'react-router-dom';
 import { PublicRoute } from '../utils/routes/PublicRoute';
 import { PrivateRoute } from '../utils/routes/PrivateRoute';
 import{SaveRoute} from '../utils/routes/SaveRoute'
@@ -32,7 +32,7 @@ export const App = () => {
                 <SaveRoute home='home' login='login' statistics='statistics'/>
               }
             />
-
+            {/* <Route path='' element={<Navigate to="/home" />}/> */}
             <Route
               path="home"
               element={
@@ -50,13 +50,13 @@ export const App = () => {
           <Route
             path="login"
             element={
-              <PublicRoute redirectTo="/home" component={<LoginPage />} />
+              <PublicRoute redirectTo="/home" component={<LoginPage />} restricted />
             }
           />
           <Route
             path="register"
             element={
-              <PublicRoute redirectTo="/home" component={<RegisterPage />} />
+              <PublicRoute redirectTo="/home" component={<RegisterPage />} restricted/>
             }
           />
 

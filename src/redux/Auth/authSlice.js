@@ -7,7 +7,8 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  isSaveRoute: true,
+  isSaveRoute: false,
+  isHomePage:false,
 };
 const loginOrRegisterFulfilled = (state, { payload }) => {
   state.user = payload.user;
@@ -40,6 +41,9 @@ const authSlice = createSlice({
     createSaveRoute: (state, { payload }) => {
       state.isSaveRoute = payload.save;
     },
+    createIsHomePage:(state, { payload }) => {
+      state.isHomePage = payload.isHome;
+    },
   },
   extraReducers: build =>
     build
@@ -52,4 +56,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { createSaveRoute } = authSlice.actions;
+export const { createSaveRoute,createIsHomePage } = authSlice.actions;

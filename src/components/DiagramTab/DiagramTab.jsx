@@ -14,7 +14,7 @@ import Chart from './Chart/Chart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './DiagramTab.css';
-import { createSaveRoute } from '../../redux/Auth/authSlice';
+import { createSaveRoute,createIsHomePage } from '../../redux/Auth/authSlice';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function DiagramTab() {
@@ -76,7 +76,8 @@ export function DiagramTab() {
   // /api/transactions-summary"
 
   useEffect(() => {
-    dispatch(createSaveRoute({ save: true }));
+    dispatch(createSaveRoute({ save: false }));
+    dispatch(createIsHomePage({ isHome: false }));
     async function getStats() {
       try {
         const res = await axios.get(
