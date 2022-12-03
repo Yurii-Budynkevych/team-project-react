@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import css from './HomePage.module.css';
 import { getTransactions } from '../../redux/Transactions/transactionsOperations';
 import HomeTab from './HomeTab/HomeTab';
-
+import { createSaveRoute } from '../../redux/Auth/authSlice';
 export default function HomePage() {
   const dispatch = useDispatch();
 
@@ -17,6 +17,7 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(getTransactions());
+    dispatch(createSaveRoute({ save: false }));
   }, [dispatch]);
   return (
     <section className={css.section}>

@@ -24,6 +24,7 @@
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
+    "react-selector": "^0.0.5",
     "react-toastify": "^9.1.1",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.6",

@@ -1,25 +1,30 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { PublicRoute } from '../utils/routes/PublicRoute';
+import { PrivateRoute } from '../utils/routes/PrivateRoute';
 import { Layout } from 'pages/layout/Layout';
 import LoginPage from 'pages/loginPage/Login';
 import RegisterPage from 'pages/registerPage/Register';
-import { selectIsToken, selectIsRefreshing } from '../redux/Auth/authSelectors';
-import { PublicRoute } from '../utils/routes/PublicRoute';
-import { PrivateRoute } from '../utils/routes/PrivateRoute';
 import HomePage from './HomePage/HomePage';
-import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import { refresh } from 'redux/Auth/authOperations';
 import { DiagramTab } from './DiagramTab/DiagramTab';
+import ErrorPathPage from './ErrorPathPage/ErrorPathPage';
+import { refresh } from 'redux/Auth/authOperations';
+import {
+  selectIsSaveRoute,
+  selectIsRefreshing,
+  selectIsLoggedIn,
+} from '../redux/Auth/authSelectors';
 
 export const App = () => {
-  const isToken = useSelector(selectIsToken);
+  const isSaveRoute = useSelector(selectIsSaveRoute);
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    isToken && dispatch(refresh());
-  }, [dispatch, isToken]);
+    dispatch(refresh());
+  }, [dispatch]);
 
   return (
     <>
@@ -28,6 +33,13 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             <Route
               index
+              element={
+                isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />
+              }
+            />
+
+            <Route
+              path="home"
               element={
                 <PrivateRoute redirectTo="/login" component={<HomePage />} />
               }
@@ -42,7 +54,27 @@ export const App = () => {
           <Route
             path="login"
             element={
-              <PublicRoute redirectTo="/home" component={<LoginPage />} />
+              <PrivateRoute redirectTo="/home" component={<HomePage />} />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute
+                redirectTo="/"
+                component={<RegisterPage />}
+                restricted
+              />
+            }
+          />
+
+          <Route
+            path="login"
+            element={
+              <PublicRoute
+                redirectTo={isSaveRoute ? '/statistics' : '/home'}
+                component={<LoginPage />}
+              />
             }
           />
           <Route
