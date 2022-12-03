@@ -1,5 +1,5 @@
 import CategoryName from './CategoryName';
-import css from '../HomePage.module.css';
+import css from '../../pages/HomePage/HomePage.module.css';
 
 export default function TransactionTableRow({ transaction }) {
   const { transactionDate, type, categoryId, comment, amount, balanceAfter } =

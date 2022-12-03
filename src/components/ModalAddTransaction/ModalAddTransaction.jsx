@@ -5,18 +5,20 @@ import { Formik, Form, Field } from 'formik';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import close from '../../../img/close.svg';
 import css from './ModalAddTransaction.module.css';
-import { addTransaction } from '../../../redux/Transactions/transactionsOperations';
+import close from '../../img/close.svg';
+import { addTransaction } from '../../redux/Transactions/transactionsOperations';
 import {
   FormikDateTime,
   CURRENT_DATE,
 } from './TransactionUtils/FormikDatetime';
-import Categories from './Categories/Categories';
+import Categories from './TransactionUtils/Categories/Categories';
 import ExpanseValidationSchema from './TransactionUtils/Validation/ExpanseValidationSchema';
 import IncomeValidationSchema from './TransactionUtils/Validation/IncomeValidationSchema';
 import notify from './TransactionUtils/notify';
-import { getTransactions } from '../../../redux/Transactions/transactionsOperations';
+import { getTransactions } from '../../redux/Transactions/transactionsOperations';
+import incomeType from '../../img/transaction-modal-open.svg';
+import expenseType from '../../img/expense-type.svg';
 
 export default function ModalAddTransaction({ showModalToggle }) {
   const [currentType, setCurrentType] = useState('EXPENSE');
@@ -43,7 +45,7 @@ export default function ModalAddTransaction({ showModalToggle }) {
       }}
     >
       <div className={css.modal}>
-        <h1>Add transaction</h1>
+        <h1 className={css.title}>Add transaction</h1>
         <Formik
           initialValues={{
             categoryId: '',
@@ -80,11 +82,19 @@ export default function ModalAddTransaction({ showModalToggle }) {
         >
           {({ values, errors, handleChange, handleBlur, isSubmitting }) => (
             <Form className={css.form}>
-              <div className={css.wrapper}>
-                <label>
+              {/* Type switcher beginning */}
+
+              <div className={css.switcherWrapper}>
+                <label
+                  className={
+                    values.type === 'EXPENSE'
+                      ? css.typeLabel
+                      : css.currentIncomeLabel
+                  }
+                >
                   Income
                   <Field
-                    className={css.field}
+                    className={css.income}
                     type="radio"
                     name="type"
                     value="INCOME"
@@ -92,10 +102,30 @@ export default function ModalAddTransaction({ showModalToggle }) {
                       setCurrentType('INCOME');
                     }}
                   />
+                  {values.type === 'EXPENSE' && (
+                    <div className={css.switcerContainer}>
+                      <img
+                        className={css.imgExpanse}
+                        src={expenseType}
+                        alt=""
+                      />
+                    </div>
+                  )}
                 </label>
-                <label>
+                <label
+                  className={
+                    values.type === 'INCOME'
+                      ? css.typeLabel
+                      : css.currentExpenceLabel
+                  }
+                >
+                  {values.type === 'INCOME' && (
+                    <div className={css.switcerContainer}>
+                      <img className={css.imgIncome} src={incomeType} alt="" />
+                    </div>
+                  )}
                   <Field
-                    className={css.field}
+                    className={css.expense}
                     type="radio"
                     name="type"
                     value="EXPENSE"
@@ -106,9 +136,12 @@ export default function ModalAddTransaction({ showModalToggle }) {
                   Expense
                 </label>
               </div>
+
+              {/* Type switcher ending */}
+
+              {/* {show/hide categories logic} */}
               {values.type === 'EXPENSE' && (
                 <Field
-                  className={css.field}
                   name="categoryId"
                   value={values.categoryId}
                   onChange={handleChange}
@@ -116,7 +149,9 @@ export default function ModalAddTransaction({ showModalToggle }) {
                   component={Categories}
                 />
               )}
-              <div className={css.wrapper}>
+
+              {/* {amount and date inputs} */}
+              <div className={css.amountDateWrapper}>
                 <Field
                   className={css.field}
                   type="amount"
@@ -128,7 +163,6 @@ export default function ModalAddTransaction({ showModalToggle }) {
                   onBlur={handleBlur}
                 />
                 <Field
-                  className={css.field}
                   name="transactionDate"
                   timeFormat={false}
                   onChange={handleChange}
@@ -140,13 +174,12 @@ export default function ModalAddTransaction({ showModalToggle }) {
                 className={css.field}
                 as="textarea"
                 name="comment"
-                cols="30"
-                rows="10"
                 placeholder="Comment"
                 value={values.comment}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              {/* {"add" and "cancel" buttons} */}
               <button
                 className={css.add}
                 type="submit"
@@ -171,7 +204,7 @@ export default function ModalAddTransaction({ showModalToggle }) {
         </Formik>
         <ToastContainer />
         <button
-          className={css.close}
+          className={css.closeModal}
           type="button"
           onClick={() => {
             showModalToggle();

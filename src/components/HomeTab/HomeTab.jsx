@@ -1,7 +1,7 @@
 import TransactionTableRow from './TransactionTableRow';
-import css from '../HomePage.module.css';
+import css from '../../pages/HomePage/HomePage.module.css';
 import { useSelector } from 'react-redux';
-import { selectTransactions } from '../../../redux/Transactions/transactionsSelectors';
+import { selectTransactions } from '../../redux/Transactions/transactionsSelectors';
 
 export default function HomeTab() {
   const transactions = useSelector(selectTransactions);

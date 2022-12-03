@@ -1,5 +1,6 @@
 import Datetime from 'react-datetime';
 import moment from 'moment';
+import css from '../ModalAddTransaction.module.css';
 
 export const CURRENT_DATE = `${new Date().getFullYear()}-${(
   new Date().getMonth() + 1
@@ -25,6 +26,7 @@ export const FormikDateTime = ({ field, form, timeFormat }) => {
 
   return (
     <Datetime
+      inputProps={{ className: css.field }}
       initialValue={new Date()}
       dateFormat={DATE_FORMAT}
       timeFormat={timeFormat}
