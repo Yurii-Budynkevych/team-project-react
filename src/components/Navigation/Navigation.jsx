@@ -1,4 +1,10 @@
 import { Balance } from 'components/Balance/Balance';
+import { Outlet } from 'react-router-dom';
+import home from '../../img/IconHome.svg';
+import statistics from '../../img/IconStatistics.svg';
+import homeMob from '../../img/IconHomeMobile.svg';
+import statisticsMob from '../../img/IconStatisticsMobile.svg';
+import currencyMob from '../../img/IconCurrencyMobile.svg';
 import {
   DivMob,
   Image,
@@ -9,40 +15,37 @@ import {
   Text,
 } from './Navigation.styled';
 
-
 export const Navigation = () => {
   return (
     <>
       <Nav>
-        <StyledLink to="/home">
+        <StyledLink to="/">
           <NavStyled>
-            <Image src="https://via.placeholder.com/18x18" alt="IconHome" />
+            <Image src={home} alt="IconHome" />
             <Text>Home</Text>
           </NavStyled>
         </StyledLink>
         <StyledLink to="statistics">
           <NavStyled>
-            <Image
-              src="https://via.placeholder.com/18x18"
-              alt="IconStatistics"
-            />
+            <Image src={statistics} alt="IconStatistics" />
             <Text>Statistics</Text>
           </NavStyled>
         </StyledLink>
         <Balance />
       </Nav>
+
       <DivMob>
-        <StyledLinkMob to="/home">
-          <img src="https://via.placeholder.com/38x38" alt="" />
+        <StyledLinkMob to="/">
+          <img src={homeMob} alt="" />
         </StyledLinkMob>
         <StyledLinkMob to="/diagram">
-          <img src="https://via.placeholder.com/38x38" alt="" />
+          <img src={statisticsMob} alt="" />
         </StyledLinkMob>
         <StyledLinkMob to="/currency">
-          <img src="https://via.placeholder.com/38x38" alt="" />
+          <img src={currencyMob} alt="" />
         </StyledLinkMob>
       </DivMob>
-
+      <Outlet />
     </>
   );
 };

@@ -4,3 +4,4 @@ export const selectIsToken = state => state.auth.token;
 export const selectIsSaveRoute = state => state.auth.isSaveRoute;
 
 export const selectUsername = state => state.auth.user.username;
+export const selectUseBalance = state => state.auth.user.balance;
