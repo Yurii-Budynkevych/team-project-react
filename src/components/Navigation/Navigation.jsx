@@ -1,5 +1,4 @@
 import { Balance } from 'components/Balance/Balance';
-import { Outlet } from 'react-router-dom';
 import home from '../../img/IconHome.svg';
 import statistics from '../../img/IconStatistics.svg';
 import homeMob from '../../img/IconHomeMobile.svg';
@@ -45,7 +44,7 @@ export const Navigation = () => {
           <img src={currencyMob} alt="" />
         </StyledLinkMob>
       </DivMob>
-      <Outlet />
+
     </>
   );
 };

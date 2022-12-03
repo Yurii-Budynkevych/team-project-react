@@ -6,7 +6,7 @@ import {selectIsLoggedIn} from '../../redux/Auth/authSelectors'
 export const Logo = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn)
   return (
-    <StyledLink to={isLoggedIn?"/":"/register"}>
+    <StyledLink to={isLoggedIn?"home":"login"}>
       <LogoStyled>
         <Image src={LogoImage} alt="Logo" />
         <Text>Wallet</Text>
