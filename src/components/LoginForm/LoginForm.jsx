@@ -3,19 +3,21 @@ import * as Yup from 'yup';
 import {
   Btn,
   ErrBox,
+  Icon,
   Image,
   StyledForm,
-  // StyledIconMan,
-  // StyledIconPW,
   StyledInput,
   StyledLable,
   StyledLink,
   StyledWrapper,
   Title,
+  FormContainer,
 } from './LoginForm.styled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/Auth/authOperations';
 import LogoImage from '../../img/Logo.svg';
+import Envelope from '../../img/baseline-email-24px 1.svg';
+import Lock from '../../img/baseline-lock-24px 1.svg';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -55,13 +57,14 @@ export const LoginForm = () => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <>
-          <Title>
-            <Image src={LogoImage} alt="wallet" />
-            Wallet
-          </Title>
+        <FormContainer>
           <StyledForm onSubmit={handleSubmit}>
+            <Title>
+              <Image src={LogoImage} alt="wallet" />
+              Wallet
+            </Title>
             <StyledWrapper>
+              <Icon src={Envelope} alt="envelop" />
               <StyledLable>
                 <StyledInput
                   type="email"
@@ -78,6 +81,7 @@ export const LoginForm = () => {
               ) : null}
             </StyledWrapper>
             <StyledWrapper>
+              <Icon src={Lock} alt="lock" />
               <StyledLable>
                 <StyledInput
                   type="password"
@@ -101,7 +105,7 @@ export const LoginForm = () => {
             </Btn>
             <StyledLink to="/register">Register</StyledLink>
           </StyledForm>
-        </>
+        </FormContainer>
       )}
     </Formik>
   );
