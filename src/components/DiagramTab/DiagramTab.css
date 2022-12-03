@@ -1,0 +1,42 @@
+.statistic {
+  /* display: flex; */
+  /* justify-content: end; */
+  max-width: 800px;
+  margin-right: 20px;
+  margin-left: auto;
+  margin-top: -105px;
+}
+.statistic__title {
+  margin: 20px 0 20px 70px;
+}
+.statistic__data {
+  display: flex;
+}
+.statistic__table {
+  display: flex;
+  width: 395px;
+  flex-direction: column;
+  gap: 20px;
+}
+.statistic__select {
+  display: flex;
+  gap: 30px;
+}
+.statistic__selector {
+  border-radius: 10px;
+}
+.statistic__listTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 60px;
+  border: 2px solid rgb(130, 121, 121);
+  border-radius: 50px;
+}
+.statistic__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

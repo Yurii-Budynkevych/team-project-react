@@ -16,6 +16,10 @@ export default function Selector({ options, initialState, changeSelector }) {
       onChange={handleChange}
       options={options}
       placeholder={valueName}
+      styles={{
+        borderRadius: '10px',
+        color: 'black',
+      }}
     />
   );
 }
