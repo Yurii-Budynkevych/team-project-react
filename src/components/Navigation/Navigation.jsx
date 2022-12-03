@@ -31,8 +31,9 @@ export const Navigation = () => {
             <Text>Statistics</Text>
           </NavStyled>
         </StyledLink>
+        <Balance />
       </Nav>
-      <Balance />
+
       <DivMob>
         <StyledLinkMob to="/">
           <img src={homeMob} alt="" />
