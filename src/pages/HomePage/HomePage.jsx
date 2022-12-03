@@ -6,7 +6,7 @@ import { getTransactions } from '../../redux/Transactions/transactionsOperations
 import HomeTab from '../../components/HomeTab/HomeTab';
 import { Navigation } from '../../components/Navigation/Navigation';
 import addTransaction from '../../img/transaction-modal-open.svg';
-
+import { createSaveRoute } from '../../redux/Auth/authSlice';
 export default function HomePage() {
   const dispatch = useDispatch();
 
@@ -15,6 +15,7 @@ export default function HomePage() {
 
   const showModalToggle = () => {
     setIsModalAddTransactionOpen(!isModalAddTransactionOpen);
+    dispatch(createSaveRoute({ save: false }));
   };
 
   useEffect(() => {
