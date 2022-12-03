@@ -19,7 +19,7 @@ export const Navigation = () => {
   return (
     <>
       <Nav>
-        <StyledLink to="homePage">
+        <StyledLink to="/">
           <NavStyled>
             <Image src={home} alt="IconHome" />
             <Text>Home</Text>
@@ -31,10 +31,10 @@ export const Navigation = () => {
             <Text>Statistics</Text>
           </NavStyled>
         </StyledLink>
-        <Balance />
       </Nav>
+      <Balance />
       <DivMob>
-        <StyledLinkMob to="/home">
+        <StyledLinkMob to="/">
           <img src={homeMob} alt="" />
         </StyledLinkMob>
         <StyledLinkMob to="/diagram">

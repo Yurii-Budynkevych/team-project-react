@@ -8,6 +8,7 @@ export const NavStyled = styled.div`
 export const Image = styled.img`
   width: 18px;
   height: 18px;
+  opacity: 0.5;
 `;
 export const Text = styled.p`
   font-family: 'poppins';
@@ -22,6 +23,10 @@ export const StyledLink = styled(NavLink)`
   font-weight: 400;
   &.active {
     font-weight: 700;
+  }
+  &.active img {
+    opacity: 1;
+    filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
   }
 `;
 export const Nav = styled.nav`

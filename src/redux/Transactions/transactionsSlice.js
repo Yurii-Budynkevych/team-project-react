@@ -9,6 +9,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   transactions: [],
   categories: [],
+  balanceAfter: null,
 };
 const getCategoriesFulfilled = (state, action) => {
   state.categories = action.payload;
@@ -16,6 +17,7 @@ const getCategoriesFulfilled = (state, action) => {
 
 const addTransactionFulfilled = (state, action) => {
   state.transactions.push(action.payload);
+  state.balanceAfter = action.payload.balanceAfter;
 };
 
 const getTransactionsFulfilled = (state, action) => {
