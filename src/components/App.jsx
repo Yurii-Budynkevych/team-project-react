@@ -15,10 +15,15 @@ import {
   selectIsRefreshing,
 } from '../redux/Auth/authSelectors';
 
+
+import { DiagramTab } from './DiagramTab/DiagramTab';
+
+
 export const App = () => {
   const isSaveRoute = useSelector(selectIsSaveRoute);
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(refresh());
@@ -26,19 +31,41 @@ export const App = () => {
 
   return (
     <>
-      {!isRefreshing && (
+      
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={isLoggedIn? <Navigate to='/home'/>: <Navigate to='/login'/>}/>
+
+              <Route
+                path='home'
+                element={
+                  <PrivateRoute redirectTo="/login" component={<HomePage />} />
+                }
+              />
+              <Route
+                path="statistics"
+                element={
+                  <PrivateRoute
+                    redirectTo="/login"
+                    component={<DiagramTab />}
+                  />
+                }
+              />
+            </Route>
             <Route
-              index
+              path="login"
               element={
                 <PrivateRoute redirectTo="/home" component={<HomePage />} />
               }
             />
             <Route
-              path="statistics"
+              path="register"
               element={
-                <PrivateRoute redirectTo="/login" component={<DiagramTab />} />
+                <PublicRoute
+                  redirectTo="/"
+                  component={<RegisterPage />}
+                  restricted
+                />
               }
             />
           </Route>
@@ -58,16 +85,17 @@ export const App = () => {
             }
           />
 
-          <Route
-            path="*"
-            element={
-              <PublicRoute>
-                <ErrorPathPage />
-              </PublicRoute>
-            }
-          />
+            <Route
+              path="*"
+              element={
+                <PublicRoute>
+                  <ErrorPathPage />
+                </PublicRoute>
+              }
+            />
+
         </Routes>
-      )}
+      
     </>
   );
 };

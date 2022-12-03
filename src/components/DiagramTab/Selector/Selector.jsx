@@ -5,8 +5,8 @@ import Select from 'react-select';
 export default function Selector({ options, initialState, changeSelector }) {
   const [valueName, setValueName] = useState(initialState);
 
-  const handleChange = async event => {
-    await setValueName(event.label);
+  const handleChange =  event => {
+  setValueName(event.label);
     changeSelector(event.label);
   };
 
@@ -16,6 +16,10 @@ export default function Selector({ options, initialState, changeSelector }) {
       onChange={handleChange}
       options={options}
       placeholder={valueName}
+      styles={{
+        borderRadius: '10px',
+        color: 'black',
+      }}
     />
   );
 }
