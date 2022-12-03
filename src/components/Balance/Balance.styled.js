@@ -8,7 +8,7 @@ export const BalanceStyled = styled.div`
   display: flex;
   width: 280px;
   height: 80px;
-  background: silver;
+  background: #ffffff;
   border-radius: 30px;
   padding-left: 40px;
   @media ${breakpoints.minTablet} {
