@@ -1,12 +1,11 @@
 import React from 'react';
-import {Navigation} from '../../components/Navigation/Navigation'
 import { Box } from 'components/Box/Box';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { Logo } from 'components/Logo/Logo';
-
-
+import { Outlet } from 'react-router-dom';
+import {Navigation} from '../../components/Navigation/Navigation'
 export const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -18,7 +17,8 @@ export const Layout = () => {
           {isLoggedIn && <UserMenu />}
         </Box>
       </Box>
-      <Navigation/>
+    <Navigation/>
+      <Outlet />
     </>
   );
 };

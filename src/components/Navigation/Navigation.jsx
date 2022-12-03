@@ -1,5 +1,4 @@
 import { Balance } from 'components/Balance/Balance';
-import { Outlet } from 'react-router-dom';
 import {
   DivMob,
   Image,
@@ -15,7 +14,7 @@ export const Navigation = () => {
   return (
     <>
       <Nav>
-        <StyledLink to="homePage">
+        <StyledLink to="/home">
           <NavStyled>
             <Image src="https://via.placeholder.com/18x18" alt="IconHome" />
             <Text>Home</Text>
@@ -43,7 +42,7 @@ export const Navigation = () => {
           <img src="https://via.placeholder.com/38x38" alt="" />
         </StyledLinkMob>
       </DivMob>
-<Outlet/>
+
     </>
   );
 };
