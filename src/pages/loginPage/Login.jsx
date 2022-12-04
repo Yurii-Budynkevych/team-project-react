@@ -12,7 +12,7 @@ export default function LoginPage() {
   return (
     <Section>
       {!isMobile && <Elipse2 src={elipseR} alt="elipse" />}
-      {!isMobile && <InvitBox />}
+      {!isMobile && <InvitBox page="login" />}
       <LoginForm />
       {!isMobile && <Elipse1 src={elipseB} alt="elipse" />}
     </Section>

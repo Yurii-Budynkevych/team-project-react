@@ -12,7 +12,7 @@ export default function RegisterPage() {
   return (
     <Section>
       {!isMobile && <Elipse2 src={elipseR} alt="elipse" />}
-      {!isMobile && <InvitBox />}
+      {!isMobile && <InvitBox page="register" />}
       <RegisterForm />
       {!isMobile && <Elipse1 src={elipseB} alt="elipse" />}
     </Section>

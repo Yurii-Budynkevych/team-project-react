@@ -1,6 +1,7 @@
 import { Box } from 'components/Box/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/Auth/authOperations';
+import exitSvg from '../../img/exit.svg';
 import { selectUsername } from 'redux/Auth/authSelectors';
 import { Btn, Name } from './UserMenu.styled';
 
@@ -18,6 +19,7 @@ export const UserMenu = () => {
           dispatch(logout());
         }}
       >
+        <img src={exitSvg} alt="exit"></img>
         Exit
       </Btn>
     </Box>
