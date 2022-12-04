@@ -9,35 +9,28 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
+import CurrencySlice from './Currency/slice/CurrencySlice';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './Auth/authSlice';
 import modalReducer from './Modal/modalSlice';
 import transactionsSlice from './Transactions/transactionsSlice';
-import CurrencyReducers from './Currency/slice/CurrencySlice'
 
 const persistConfig = {
   key: 'root',
   storage,
-<<<<<<< HEAD
-  whitelist: ['token', 'isSaveRoute', 'isHomePage'],
-=======
   whitelist: ['token','isSaveRoute','isHomePage', 'currency'],
->>>>>>> 3ed4737703cdb2bebe033d582ae48c49e392363a
 };
 
+
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
-const persistedCurrencyReducer = persistReducer(persistConfig, CurrencyReducers);
+const persistedCurrencyReducer = persistReducer(persistConfig, CurrencySlice);
 
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     transactions: transactionsSlice,
-<<<<<<< HEAD
-    modal: modalReducer,
-=======
     currency: persistedCurrencyReducer,
->>>>>>> 3ed4737703cdb2bebe033d582ae48c49e392363a
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
