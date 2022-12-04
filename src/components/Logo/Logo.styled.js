@@ -27,6 +27,10 @@ export const Text = styled.p`
   line-height: 1.5;
   margin: 0 0 0 20px;
   color: #000000;
+
+  @media screen and (max-width: 767px) {
+    font-size: 24px;
+  }
 `;
 
 export const StyledLink = styled(Link)`

@@ -5,9 +5,14 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { Logo } from 'components/Logo/Logo';
 import { Outlet } from 'react-router-dom';
-import {Navigation} from '../../components/Navigation/Navigation'
+import { Navigation } from '../../components/Navigation/Navigation';
+import { selectIsModalOpen } from '../../redux/Modal/modalSelectors';
+import { ModalExit } from '../../components/ModalExit/ModalExit';
+
 export const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const modalStatus = useSelector(selectIsModalOpen);
+  console.log(modalStatus);
 
   return (
     <>
@@ -17,8 +22,9 @@ export const Layout = () => {
           {isLoggedIn && <UserMenu />}
         </Box>
       </Box>
-    <Navigation/>
+      <Navigation />
       <Outlet />
+      {modalStatus && <ModalExit />}
     </>
   );
 };

@@ -10,6 +10,9 @@ export const Name = styled.p`
 `;
 
 export const Btn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Circe';
   font-weight: 400;
   font-size: 18px;
@@ -22,4 +25,16 @@ export const Btn = styled.button`
   border-left: 1px solid #bdbdbd;
   cursor: pointer;
   padding: 0px 12px;
+
+  @media screen and (max-width: 767px) {
+    border: none;
+    margin: 0 0 0 8px;
+    padding: 0;
+  }
+`;
+
+export const Img = styled.img`
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
 `;
