@@ -4,11 +4,9 @@ import 'react-datetime/css/react-datetime.css';
 import { Formik, Form, Field } from 'formik';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import Media from 'react-media';
 import { createPortal } from 'react-dom';
 
 import css from './ModalAddTransaction.module.css';
-import { Layout } from '../../pages/layout/Layout';
 import close from '../../img/close.svg';
 import {
   addTransaction,
@@ -26,6 +24,7 @@ import { getTransactions } from '../../redux/Transactions/transactionsOperations
 import incomeType from '../../img/transaction-modal-open.svg';
 import expenseType from '../../img/expense-type.svg';
 
+const mainRoot = document.querySelector('#root');
 const modalRoot = document.querySelector('#modal-root');
 
 export default function ModalAddTransaction() {
@@ -38,8 +37,10 @@ export default function ModalAddTransaction() {
     }
   };
   useEffect(() => {
+    mainRoot.classList.add('modal-open');
     document.addEventListener('keydown', hanleKeyDown);
     return () => {
+      mainRoot.classList.remove('modal-open');
       document.removeEventListener('keydown', hanleKeyDown);
     };
     //eslint-disable-next-line
@@ -53,13 +54,15 @@ export default function ModalAddTransaction() {
       }}
     >
       <div className={css.modal}>
-        <Media
-          queries={{
-            small: '(max-width: 767px)',
+        <button
+          className={css.closeModal}
+          type="button"
+          onClick={() => {
+            dispatch(showModalToggle());
           }}
         >
-          {matches => <>{matches.small && <Layout />}</>}
-        </Media>
+          <img src={close} alt="close" />
+        </button>
         <h1 className={css.title}>Add transaction</h1>
         <Formik
           initialValues={{
@@ -218,15 +221,6 @@ export default function ModalAddTransaction() {
           )}
         </Formik>
         <ToastContainer />
-        <button
-          className={css.closeModal}
-          type="button"
-          onClick={() => {
-            dispatch(showModalToggle());
-          }}
-        >
-          <img src={close} alt="close" />
-        </button>
       </div>
     </div>,
     modalRoot
