@@ -1,4 +1,10 @@
-import { logIn, logout, refresh, register } from './authOperations';
+import {
+  logIn,
+  logout,
+  refresh,
+  register,
+  getCurrentPage,
+} from './authOperations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -8,7 +14,8 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isSaveRoute: false,
-  isHomePage:false,
+  isHomePage: false,
+  currentPage: '',
 };
 const loginOrRegisterFulfilled = (state, { payload }) => {
   state.user = payload.user;
@@ -34,6 +41,10 @@ const refreshRejected = state => {
   state.isRefreshing = false;
 };
 
+const getCurrentPageFulfilled = state => {
+  state.currentPage = window.location.href;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -41,7 +52,7 @@ const authSlice = createSlice({
     createSaveRoute: (state, { payload }) => {
       state.isSaveRoute = payload.save;
     },
-    createIsHomePage:(state, { payload }) => {
+    createIsHomePage: (state, { payload }) => {
       state.isHomePage = payload.isHome;
     },
   },
@@ -52,8 +63,9 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, logOutFulfilled)
       .addCase(refresh.fulfilled, refreshFulfilled)
       .addCase(refresh.pending, refreshPending)
-      .addCase(refresh.rejected, refreshRejected),
+      .addCase(refresh.rejected, refreshRejected)
+      .addCase(getCurrentPage.fulfilled, getCurrentPageFulfilled),
 });
 
 export default authSlice.reducer;
-export const { createSaveRoute,createIsHomePage } = authSlice.actions;
+export const { createSaveRoute, createIsHomePage } = authSlice.actions;

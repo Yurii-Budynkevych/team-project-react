@@ -34,7 +34,7 @@ export const logIn = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message)
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -66,3 +66,12 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+export const getCurrentPage = createAsyncThunk(
+  'transactions/getCurrentPage',
+  async (_, thunkAPI) => {
+    try {
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
