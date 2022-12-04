@@ -2,17 +2,14 @@
 .section {
   display: flex;
   position: relative;
-  background-image: url('../../img/bg-image.png');
-  background-size: cover;
-  background-repeat: no-repeat;
   padding: 15px;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 1280px) {
   .section {
-    margin-top: -93px;
-    margin-left: 480px;
     height: calc(100vh - 110px);
   }
 }
