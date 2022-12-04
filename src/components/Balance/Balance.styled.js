@@ -2,20 +2,21 @@ import styled from 'styled-components';
 import { breakpoints } from '../../utils/sizes';
 
 export const BalanceStyled = styled.div`
-  display: flex;
   flex-direction: column;
-  position: absolute;
   display: flex;
   width: 280px;
   height: 80px;
-  background: #ffffff;
+  background: silver;
   border-radius: 30px;
   padding-left: 40px;
+  margin: 0 auto;
   @media ${breakpoints.minTablet} {
     width: 336px;
+    margin-left: 35px;
   }
   @media ${breakpoints.desktop} {
     width: 395px;
+    margin-left: 19px;
   }
 `;
 
