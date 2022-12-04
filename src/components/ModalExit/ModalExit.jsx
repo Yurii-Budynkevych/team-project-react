@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
-import { Overlay, ModalWindow } from './ModalExit.styled';
+import { Overlay, ModalWindow, Text, Btn } from './ModalExit.styled';
 import { togleModal } from '../../redux/Modal/modalSlice';
 import { logout } from 'redux/Auth/authOperations';
 
@@ -30,15 +30,16 @@ export const ModalExit = () => {
       }}
     >
       <ModalWindow>
-        <p>Are you shure you want to exit?</p>
-        <button
+        <Text>Do you want to exit?</Text>
+        <Btn
           type="button"
           onClick={() => {
             dispatch(logout());
+            dispatch(togleModal());
           }}
         >
           Exit
-        </button>
+        </Btn>
       </ModalWindow>
     </Overlay>,
     modalRoot
