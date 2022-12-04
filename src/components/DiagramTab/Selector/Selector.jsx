@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Select from 'react-select';
+import './Selector.css';
 
 export default function Selector({ options, initialState, changeSelector }) {
   const [valueName, setValueName] = useState(initialState);
 
-  const handleChange =  event => {
-  setValueName(event.label);
+  const handleChange = event => {
+    setValueName(event.label);
     changeSelector(event.label);
   };
 
@@ -16,10 +17,15 @@ export default function Selector({ options, initialState, changeSelector }) {
       onChange={handleChange}
       options={options}
       placeholder={valueName}
-      styles={{
-        borderRadius: '10px',
-        color: 'black',
-      }}
+      // className="statistic__selector"
+      // classNames={{
+      //   control: (state) =>
+      //     state.isFocused ? 'border-red-800',
+      // }}
+      // styles={{
+      //   borderRadius: '10px',
+      //   color: 'black',
+      // }}
     />
   );
 }

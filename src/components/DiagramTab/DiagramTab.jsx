@@ -9,12 +9,13 @@ import {
   MONTH_INITIAL_STATE,
   monthOptions,
   yearOptions,
+  elColor,
 } from 'utils/statisticsSetting';
 import Chart from './Chart/Chart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './DiagramTab.css';
-import { createSaveRoute,createIsHomePage } from '../../redux/Auth/authSlice';
+import { createSaveRoute, createIsHomePage } from '../../redux/Auth/authSlice';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function DiagramTab() {
@@ -23,19 +24,6 @@ export function DiagramTab() {
   const totalBalance = obj?.periodTotal;
   // console.log(obj?.categoriesSummary.map(({type}) => type))
   // console.log(obj)
-  const color = [
-    '#ddff00',
-    '#ff8000',
-    '#2bff00',
-    '#1dcba3',
-    '#01cde8',
-    '#9e8ed0',
-    '#461bc7',
-    '#824509',
-    '#820937',
-    '#d288a4',
-    '#423d4d',
-  ];
   const data = {
     labels: obj?.categoriesSummary.map(({ name }) => name),
     datasets: [
@@ -43,7 +31,7 @@ export function DiagramTab() {
         label: 'balance',
         // data: obj?.categoriesSummary.map(({total, type}) => (type === "EXPENSE" && -total)),
         data: obj?.categoriesSummary.map(({ total }) => total),
-        backgroundColor: color,
+        backgroundColor: elColor,
         borderColor: [
           generateLightColorHex(),
           generateLightColorHex(),
@@ -72,9 +60,6 @@ export function DiagramTab() {
     setSelectYear(year);
   };
 
-  // /api/transactions-summary?month=2&year=2021"
-  // /api/transactions-summary"
-
   useEffect(() => {
     dispatch(createSaveRoute({ save: false }));
     dispatch(createIsHomePage({ isHome: false }));
@@ -91,7 +76,7 @@ export function DiagramTab() {
     // console.log(getStats())
     getStats().then(data => setObj(data));
   }, [dispatch, selectMonth, selectYear]);
-  // console.log(obj?.categoriesSummary.length)
+  // console.log(obj?.categoriesSummary.length);
 
   return (
     <div className="statistic">
@@ -112,7 +97,7 @@ export function DiagramTab() {
             />
           </div>
           {obj?.categoriesSummary.length === 0 ? (
-            <h2>you have no transactions this month</h2>
+            <h2 className="emptyTitle">you have no transactions this month</h2>
           ) : (
             <div>
               <div className="statistic__listTitle">
@@ -120,12 +105,23 @@ export function DiagramTab() {
                 <span>Sum</span>
               </div>
               <ul className="statistic__list">
-                {obj?.categoriesSummary.map(({ name, total, type }) => (
-                  <Table key={name} name={name} total={total} type={type} />
+                {obj?.categoriesSummary.map(({ name, total }, i) => (
+                  <Table
+                    key={name}
+                    name={name}
+                    total={total}
+                    color={elColor[i]}
+                  />
                 ))}
               </ul>
-              <h3>Expenses per month: {obj?.expenseSummary}</h3>
-              <h3>Income per month: {obj?.incomeSummary}</h3>
+              <h3 className="statistic__value">
+                <span>Expenses per month:</span>
+                <span style={{ color: '#FF6596' }}>{obj?.expenseSummary}</span>
+              </h3>
+              <h3 className="statistic__value">
+                <span>Income per month:</span>
+                <span style={{ color: '#24CCA7' }}>{obj?.incomeSummary}</span>
+              </h3>
             </div>
           )}
         </div>

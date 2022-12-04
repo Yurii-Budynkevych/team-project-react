@@ -19,6 +19,19 @@ const yearOptions = [
   { value: '2023', label: '2023' },
   { value: '2024', label: '2024' },
 ];
+  const elColor = [
+    '#ddff00',
+    '#ff8000',
+    '#2bff00',
+    '#a25970',
+    '#01cde8',
+    '#9e8ed0',
+    '#461bc7',
+    '#824509',
+    '#820937',
+    '#d288a4',
+    '#423d4d',
+  ];
 const YEAR_INITIAL_STATE = new Date().getFullYear() + '';
 const currentMonth = new Date().getMonth();
 const monthObj = monthOptions.find(el => Number(el.value) === currentMonth + 1);
@@ -39,4 +52,5 @@ export {
   YEAR_INITIAL_STATE,
   MONTH_INITIAL_STATE,
   generateLightColorHex,
+  elColor,
 };
