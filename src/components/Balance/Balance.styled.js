@@ -8,7 +8,7 @@ export const BalanceStyled = styled.div`
   display: flex;
   width: 280px;
   height: 80px;
-  background: silver;
+  background: #ffffff;
   border-radius: 30px;
   padding-left: 40px;
   @media ${breakpoints.minTablet} {
@@ -20,7 +20,7 @@ export const BalanceStyled = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: 'Circe';
+  font-family: 'circeRegular';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -32,9 +32,9 @@ export const Text = styled.p`
 `;
 
 export const Number = styled.p`
-  font-family: 'Poppins';
+  font-family: 'poppins';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 30px;
   line-height: 45px;
   color: #000000;

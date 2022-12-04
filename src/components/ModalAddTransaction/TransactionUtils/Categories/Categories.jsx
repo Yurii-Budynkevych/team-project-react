@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import css from '../../ModalAddTransaction.module.css';
 
 import Category from './Category';
 import { selectCategories } from '../../../../redux/Transactions/transactionsSelectors';
@@ -23,6 +24,7 @@ export default function Categories({ field, form }) {
 
   return (
     <select
+      className={field.value === '' ? css.defaultSelect : css.categorySelect}
       id={field.name}
       name={field.name}
       onChange={onFieldChange}

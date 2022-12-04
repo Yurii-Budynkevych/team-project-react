@@ -18,7 +18,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: 'Poppins';
+  font-family: 'popins';
   font-weight: 700;
   font-size: 30px;
   line-height: 1.5;

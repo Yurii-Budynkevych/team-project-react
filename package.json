@@ -1,8 +1,8 @@
 {
-  "name": "tm-project-react",
+  "name": "team-project-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://arturmand.github.io/tm-project-react/",
+  "homepage": "https://arturmand.github.io/team-project-react/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.3",
@@ -12,6 +12,7 @@
     "chart.js": "^4.0.1",
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
+    "gh-pages": "^4.0.0",
     "modern-normalize": "^1.1.0",
     "react": "^18.1.0",
     "react-chartjs-2": "^5.0.1",
@@ -21,9 +22,10 @@
     "react-media": "^1.10.0",
     "react-password-strength-bar": "^0.4.1",
     "react-redux": "^8.0.5",
-    "react-responsive": "^9.0.2",
-    "react-router-dom": "^6.4.3",
+    "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
+    "react-selector": "^0.0.5",
     "react-toastify": "^9.1.1",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.6",
@@ -36,7 +38,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

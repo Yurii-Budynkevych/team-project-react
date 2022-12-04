@@ -17,7 +17,7 @@ import transactionsSlice from './Transactions/transactionsSlice';
 const persistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token','isSaveRoute','isHomePage'],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);

@@ -1,5 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
 }
@@ -17,3 +16,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: "circeBold";
+  src: local("circeBold"),
+   url("./stylesheets/fonts/circe/Circe-Bold.ttf") format("truetype");
+  font-weight: bold;
+  }
+  @font-face {
+    font-family: "circeRegular";
+    src: local("circeRegular"),
+     url("./stylesheets/fonts/circe/Circe-Regular.ttf") format("truetype");
+    font-weight: 400;
+    }
