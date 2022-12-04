@@ -12,19 +12,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.modal-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 @font-face {
-  font-family: "circeBold";
-  src: local("circeBold"),
-   url("./stylesheets/fonts/circe/Circe-Bold.ttf") format("truetype");
+  font-family: 'circeBold';
+  src: local('circeBold'),
+    url('./stylesheets/fonts/circe/Circe-Bold.ttf') format('truetype');
   font-weight: bold;
-  }
-  @font-face {
-    font-family: "circeRegular";
-    src: local("circeRegular"),
-     url("./stylesheets/fonts/circe/Circe-Regular.ttf") format("truetype");
-    font-weight: 400;
-    }
+}
+@font-face {
+  font-family: 'circeRegular';
+  src: local('circeRegular'),
+    url('./stylesheets/fonts/circe/Circe-Regular.ttf') format('truetype');
+  font-weight: 400;
+}

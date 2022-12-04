@@ -48,7 +48,7 @@ export const Navigation = () => {
                   </StyledLinkMob>
                 </NewDiv>
                 {currentPage ===
-                  'http://localhost:3000/team-project-react/home' && (
+                  'https://arturmand.github.io/team-project-react/home' && (
                   <Balance />
                 )}
               </DivMob>
