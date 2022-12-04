@@ -53,6 +53,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  z-index: 1300;
 }
 
 .title {
@@ -215,6 +216,12 @@
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+@media (max-width: 767px) {
+  .closeModal {
+    display: none;
+  }
 }
 
 .add:hover,

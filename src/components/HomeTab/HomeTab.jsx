@@ -1,13 +1,14 @@
-import TransactionTableRow from './TransactionTableRow';
-import css from '../../pages/HomePage/HomePage.module.css';
 import { useSelector } from 'react-redux';
 import { selectTransactions } from '../../redux/Transactions/transactionsSelectors';
+
+import TransactionTableRow from './TransactionTableRow';
+import css from '../../pages/HomePage/HomePage.module.css';
 
 export default function HomeTab() {
   const transactions = useSelector(selectTransactions);
 
   return (
-    <>
+    <div className={css.tableWrapper}>
       <div className={css.tableHeaderWrapper}>
         <table className={css.table}>
           <thead>
@@ -34,6 +35,6 @@ export default function HomeTab() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }
