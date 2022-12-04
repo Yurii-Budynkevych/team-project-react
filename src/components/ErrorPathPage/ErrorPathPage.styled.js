@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  margin-top: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +30,7 @@ export const StyledLink = styled(Link)`
   border-radius: 20px;
   margin-bottom: 20px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 44px;
   line-height: 1.5;
   letter-spacing: 0.1em;
   text-transform: uppercase;
