@@ -13,8 +13,12 @@ const options = {
 
 const Chart = ({ data, totalBalance }) => {
   return (
-    <div className="douhnut">
-      <Doughnut options={options} data={data} />
+    <div className="statistic__douhnut">
+      <Doughnut
+        options={options}
+        data={data}
+        style={{ width: 'auto', height: 'auto' }}
+      />
       {totalBalance !== 0 && <span className="balance">₴ {totalBalance}</span>}
       {/* <span className="balance">₴ {totalBalance}</span> */}
     </div>
