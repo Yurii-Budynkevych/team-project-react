@@ -12,16 +12,17 @@ export const BalanceStyled = styled.div`
   margin: 0 auto;
   @media ${breakpoints.minTablet} {
     width: 336px;
-    margin-left: 35px;
+    margin-bottom: 20px;
   }
   @media ${breakpoints.desktop} {
     width: 395px;
-    margin-left: 19px;
+    margin-bottom: 32px;
   }
 `;
 
 export const Text = styled.p`
   font-family: 'circeRegular';
+
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -29,7 +30,8 @@ export const Text = styled.p`
   text-transform: uppercase;
   color: #a6a6a6;
   margin: 0;
-  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 `;
 
 export const Number = styled.p`
@@ -40,6 +42,4 @@ export const Number = styled.p`
   line-height: 45px;
   color: #000000;
   margin: 0;
-  margin-top: 12px;
-  margin-bottom: 12px;
 `;

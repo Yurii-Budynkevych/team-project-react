@@ -1,4 +1,4 @@
-import {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 import { Balance } from 'components/Balance/Balance';
 import home from '../../img/IconHome.svg';
 import statistics from '../../img/IconStatistics.svg';
@@ -20,7 +20,7 @@ import {
 
 export const Navigation = () => {
   return (
-    <div style={{display:'flex'}}>
+    <div style={{ display: 'flex' }}>
       <MainDiv>
         <Nav>
           <StyledLink to="home">
@@ -52,8 +52,7 @@ export const Navigation = () => {
         </StyledLinkMob>
         <Balance />
       </DivMob>
-      <Outlet/>
-
+      <Outlet />
     </div>
   );
 };
