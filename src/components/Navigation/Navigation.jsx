@@ -4,6 +4,7 @@ import statistics from '../../img/IconStatistics.svg';
 import homeMob from '../../img/IconHomeMobile.svg';
 import statisticsMob from '../../img/IconStatisticsMobile.svg';
 import currencyMob from '../../img/IconCurrencyMobile.svg';
+import Currency  from '../Currency/Currency'
 import {
   DivMob,
   Image,
@@ -33,6 +34,7 @@ export const Navigation = () => {
         </StyledLink>
 
         <Balance />
+        <Currency/>
       </Nav>
 
       <DivMob>

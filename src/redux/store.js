@@ -13,19 +13,22 @@ import {
 import storage from 'redux-persist/lib/storage';
 import authReducer from './Auth/authSlice';
 import transactionsSlice from './Transactions/transactionsSlice';
+import CurrencyReducers from './Currency/slice/CurrencySlice'
 
 const persistConfig = {
-  key: 'token',
+  key: 'root',
   storage,
-  whitelist: ['token','isSaveRoute','isHomePage'],
+  whitelist: ['token','isSaveRoute','isHomePage', 'currency'],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+const persistedCurrencyReducer = persistReducer(persistConfig, CurrencyReducers);
 
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     transactions: transactionsSlice,
+    currency: persistedCurrencyReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
