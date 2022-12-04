@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const MainDiv = styled.div`
   @media ${breakpoints.minTablet} {
     min-width: 768px;
+    margin-top: 45px;
   }
   @media ${breakpoints.desktop} {
     min-width: 480px;
@@ -74,18 +75,29 @@ export const Text = styled.p`
 `;
 
 export const DivMob = styled.div`
-  display: flex;
+  display: block;
   justify-content: space-evenly;
+
   margin-bottom: 15px;
-  @media ${breakpoints.minTablet} {
-  }
 `;
 
 export const StyledLinkMob = styled(NavLink)`
+  margin-right: 35px;
+  &:first-child {
+    margin-left: 65px;
+  }
+  &:last-child {
+    margin-right: 65px;
+  }
   &.active img {
     opacity: 1;
     filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
   }
+`;
+
+export const NewDiv = styled.div`
+  padding-top: 15px;
+  padding-bottom: 15px;
 `;
 
 export const ImageMob = styled.img`

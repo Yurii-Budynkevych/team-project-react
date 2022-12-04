@@ -1,4 +1,3 @@
-
 import Media from 'react-media';
 import { Outlet } from 'react-router-dom';
 import { Balance } from 'components/Balance/Balance';
@@ -19,6 +18,7 @@ import {
   Text,
   ImageMob,
   MainDiv,
+  NewDiv,
 } from './Navigation.styled';
 
 export const Navigation = () => {
@@ -33,15 +33,17 @@ export const Navigation = () => {
           <>
             {matches.small ? (
               <DivMob>
-                <StyledLinkMob to="home">
-                  <ImageMob src={homeMob} alt="home" />
-                </StyledLinkMob>
-                <StyledLinkMob to="statistics">
-                  <ImageMob src={statisticsMob} alt="statistic" />
-                </StyledLinkMob>
-                <StyledLinkMob to="currency">
-                  <ImageMob src={currencyMob} alt="urrency" />
-                </StyledLinkMob>
+                <NewDiv>
+                  <StyledLinkMob to="home">
+                    <ImageMob src={homeMob} alt="home" />
+                  </StyledLinkMob>
+                  <StyledLinkMob to="statistics">
+                    <ImageMob src={statisticsMob} alt="statistic" />
+                  </StyledLinkMob>
+                  <StyledLinkMob to="currency">
+                    <ImageMob src={currencyMob} alt="urrency" />
+                  </StyledLinkMob>
+                </NewDiv>
                 <Balance />
               </DivMob>
             ) : (

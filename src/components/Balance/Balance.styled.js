@@ -2,16 +2,16 @@ import styled from 'styled-components';
 import { breakpoints } from '../../utils/sizes';
 
 export const BalanceStyled = styled.div`
-  flex-direction: column;
-  display: flex;
+  display: block;
   width: 280px;
   height: 80px;
-  background: silver;
+  background: #ffffff;
   border-radius: 30px;
   padding-left: 40px;
-  margin: 0 auto;
+  margin-left: 20px;
   @media ${breakpoints.minTablet} {
     width: 336px;
+    margin: 0;
     margin-bottom: 20px;
   }
   @media ${breakpoints.desktop} {
