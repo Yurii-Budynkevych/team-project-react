@@ -2,6 +2,7 @@ import {
   getCategories,
   addTransaction,
   getTransactions,
+  showModalToggle,
 } from './transactionsOperations';
 
 import { createSlice } from '@reduxjs/toolkit';
@@ -9,6 +10,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   transactions: [],
   categories: [],
+  isModalAddTransactionOpen: false,
   balanceAfter: null,
 };
 const getCategoriesFulfilled = (state, action) => {
@@ -29,6 +31,9 @@ const getTransactionsFulfilled = (state, action) => {
     );
   });
 };
+const showModalToggleFulfilled = (state, action) => {
+  state.isModalAddTransactionOpen = !state.isModalAddTransactionOpen;
+};
 
 const transactionsSlice = createSlice({
   name: 'transactions',
@@ -37,7 +42,8 @@ const transactionsSlice = createSlice({
     build
       .addCase(getCategories.fulfilled, getCategoriesFulfilled)
       .addCase(addTransaction.fulfilled, addTransactionFulfilled)
-      .addCase(getTransactions.fulfilled, getTransactionsFulfilled),
+      .addCase(getTransactions.fulfilled, getTransactionsFulfilled)
+      .addCase(showModalToggle.fulfilled, showModalToggleFulfilled),
 });
 
 export default transactionsSlice.reducer;

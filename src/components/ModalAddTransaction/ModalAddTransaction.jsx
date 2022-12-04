@@ -4,10 +4,16 @@ import 'react-datetime/css/react-datetime.css';
 import { Formik, Form, Field } from 'formik';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Media from 'react-media';
+import { createPortal } from 'react-dom';
 
 import css from './ModalAddTransaction.module.css';
+import { Layout } from '../../pages/layout/Layout';
 import close from '../../img/close.svg';
-import { addTransaction } from '../../redux/Transactions/transactionsOperations';
+import {
+  addTransaction,
+  showModalToggle,
+} from '../../redux/Transactions/transactionsOperations';
 import {
   FormikDateTime,
   CURRENT_DATE,
@@ -20,13 +26,15 @@ import { getTransactions } from '../../redux/Transactions/transactionsOperations
 import incomeType from '../../img/transaction-modal-open.svg';
 import expenseType from '../../img/expense-type.svg';
 
-export default function ModalAddTransaction({ showModalToggle }) {
+const modalRoot = document.querySelector('#modal-root');
+
+export default function ModalAddTransaction() {
   const [currentType, setCurrentType] = useState('EXPENSE');
   const dispatch = useDispatch();
 
   const hanleKeyDown = event => {
     if (event.code === 'Escape') {
-      showModalToggle();
+      dispatch(showModalToggle());
     }
   };
   useEffect(() => {
@@ -37,14 +45,21 @@ export default function ModalAddTransaction({ showModalToggle }) {
     //eslint-disable-next-line
   }, []);
 
-  return (
+  return createPortal(
     <div
       className={css.backdrop}
       onClick={event => {
-        event.currentTarget === event.target && showModalToggle();
+        event.currentTarget === event.target && dispatch(showModalToggle());
       }}
     >
       <div className={css.modal}>
+        <Media
+          queries={{
+            small: '(max-width: 767px)',
+          }}
+        >
+          {matches => <>{matches.small && <Layout />}</>}
+        </Media>
         <h1 className={css.title}>Add transaction</h1>
         <Formik
           initialValues={{
@@ -77,7 +92,7 @@ export default function ModalAddTransaction({ showModalToggle }) {
               dispatch(getTransactions());
             }, 250);
             setSubmitting(false);
-            showModalToggle();
+            dispatch(showModalToggle());
           }}
         >
           {({ values, errors, handleChange, handleBlur, isSubmitting }) => (
@@ -194,7 +209,7 @@ export default function ModalAddTransaction({ showModalToggle }) {
                 className={css.cancel}
                 type="button"
                 onClick={() => {
-                  showModalToggle();
+                  dispatch(showModalToggle());
                 }}
               >
                 CANCEL
@@ -207,12 +222,13 @@ export default function ModalAddTransaction({ showModalToggle }) {
           className={css.closeModal}
           type="button"
           onClick={() => {
-            showModalToggle();
+            dispatch(showModalToggle());
           }}
         >
           <img src={close} alt="close" />
         </button>
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 }

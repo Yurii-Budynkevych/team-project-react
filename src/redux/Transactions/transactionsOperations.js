@@ -36,3 +36,13 @@ export const getTransactions = createAsyncThunk(
     }
   }
 );
+
+export const showModalToggle = createAsyncThunk(
+  'transactions/showModalToggle',
+  async (_, thunkAPI) => {
+    try {
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,21 +1,28 @@
-import ModalAddTransaction from '../../components/ModalAddTransaction/ModalAddTransaction';
-import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import Media from 'react-media';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import css from './HomePage.module.css';
-import { getTransactions } from '../../redux/Transactions/transactionsOperations';
+
+import ModalAddTransaction from '../../components/ModalAddTransaction/ModalAddTransaction';
+import {
+  getTransactions,
+  showModalToggle,
+} from '../../redux/Transactions/transactionsOperations';
 import HomeTab from '../../components/HomeTab/HomeTab';
 import addTransaction from '../../img/transaction-modal-open.svg';
-import { createSaveRoute,createIsHomePage } from '../../redux/Auth/authSlice';
+import { createSaveRoute, createIsHomePage } from '../../redux/Auth/authSlice';
+import MobileHomeTab from '../../components/HomeTab/MobileHomeTab';
+import {
+  selectTransactions,
+  selectIsModalAddTransactionOpen,
+} from '../../redux/Transactions/transactionsSelectors';
+
 export default function HomePage() {
+  const isModalAddTransactionOpen = useSelector(
+    selectIsModalAddTransactionOpen
+  );
   const dispatch = useDispatch();
-
-  const [isModalAddTransactionOpen, setIsModalAddTransactionOpen] =
-    useState(false);
-
-  const showModalToggle = () => {
-    setIsModalAddTransactionOpen(!isModalAddTransactionOpen);
-
-  };
+  const transactions = useSelector(selectTransactions);
 
   useEffect(() => {
     dispatch(createSaveRoute({ save: true }));
@@ -25,25 +32,39 @@ export default function HomePage() {
   return (
     <>
       <section className={css.section}>
-        <div className={css.leftSide}>
+        <Media
+          queries={{
+            small: '(max-width: 767px)',
+          }}
+        >
+          {matches => (
+            <>
+              {matches.small ? (
+                <ul className={css.mobileHomeTab}>
+                  {transactions.map(transaction => (
+                    <MobileHomeTab
+                      key={transaction.id}
+                      transaction={transaction}
+                    />
+                  ))}
+                </ul>
+              ) : (
+                <HomeTab />
+              )}
+            </>
+          )}
+        </Media>
 
-          <h1>CURRENCY</h1>
-        </div>
-        <div className={css.tableWrapper}>
-          <HomeTab />
-        </div>
         <button
           className={css.modalButton}
           type="button"
           onClick={() => {
-            showModalToggle();
+            dispatch(showModalToggle());
           }}
         >
           <img src={addTransaction} alt="Add Transaction" />
         </button>
-        {isModalAddTransactionOpen && (
-          <ModalAddTransaction showModalToggle={showModalToggle} />
-        )}
+        {isModalAddTransactionOpen && <ModalAddTransaction />}
       </section>
     </>
   );
