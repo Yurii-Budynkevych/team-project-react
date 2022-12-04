@@ -4,8 +4,10 @@ import { breakpoints } from '../../utils/sizes';
 import backgroundImage from '../../img/bg-image.png';
 
 export const Wrapper = styled.div`
-  @media ${breakpoints.desktop} {
-    display: flex;
+  display: flex;
+  @media ${breakpoints.maxTablet} {
+    flex-direction: column;
+    align-items: center;
   }
   background-image: url(${backgroundImage});
   background-size: cover;
