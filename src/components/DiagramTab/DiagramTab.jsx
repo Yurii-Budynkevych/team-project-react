@@ -85,7 +85,15 @@ function DiagramTab() {
     <section className="statistic">
       <h2 className="statistic__title">Statistics</h2>
       <div className="statistic__data">
-        <Chart data={data} totalBalance={totalBalance} />
+        {obj?.categoriesSummary.length ? (
+          <Chart data={data} totalBalance={totalBalance} />
+        ) : (
+          <h2 className="emptyTitle">
+            You have no transactions <br />
+            this month
+          </h2>
+        )}
+
         <div className="statistic__table">
           <div className="statistic__select">
             <Selector
@@ -99,34 +107,30 @@ function DiagramTab() {
               changeSelector={onSelectYear}
             />
           </div>
-          {obj?.categoriesSummary.length === 0 ? (
-            <h2 className="emptyTitle">you have no transactions this month</h2>
-          ) : (
-            <div>
-              <div className="statistic__listTitle">
-                <span>Category</span>
-                <span>Sum</span>
-              </div>
-              <ul className="statistic__list">
-                {obj?.categoriesSummary.map(({ name, total }, i) => (
-                  <Table
-                    key={name}
-                    name={name}
-                    total={total}
-                    color={elColor[i]}
-                  />
-                ))}
-              </ul>
-              <h3 className="statistic__value">
-                <span>Expenses per month:</span>
-                <span style={{ color: '#FF6596' }}>{obj?.expenseSummary}</span>
-              </h3>
-              <h3 className="statistic__value">
-                <span>Income per month:</span>
-                <span style={{ color: '#24CCA7' }}>{obj?.incomeSummary}</span>
-              </h3>
+          <div>
+            <div className="statistic__listTitle">
+              <span>Category</span>
+              <span>Sum</span>
             </div>
-          )}
+            <ul className="statistic__list">
+              {obj?.categoriesSummary.map(({ name, total }, i) => (
+                <Table
+                  key={name}
+                  name={name}
+                  total={total}
+                  color={elColor[i]}
+                />
+              ))}
+            </ul>
+            <h3 className="statistic__value">
+              <span>Expenses per month:</span>
+              <span style={{ color: '#FF6596' }}>{obj?.expenseSummary}</span>
+            </h3>
+            <h3 className="statistic__value">
+              <span>Income per month:</span>
+              <span style={{ color: '#24CCA7' }}>{obj?.incomeSummary}</span>
+            </h3>
+          </div>
         </div>
       </div>
     </section>
