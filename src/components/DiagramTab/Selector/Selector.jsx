@@ -11,22 +11,44 @@ export default function Selector({ options, initialState, changeSelector }) {
     changeSelector(event.label);
   };
 
+  const customStyles = {
+    menu: provided => ({
+      ...provided,
+      width: '100%',
+      // borderBottom: '1px solid black',
+      color: 'black',
+      padding: 10,
+      borderRadius: 10,
+    }),
+
+    control: (_, { selectProps: { width } }) => ({
+      width: width,
+      border: '2px solid black',
+      borderRadius: 50,
+      opacity: 1,
+      display: 'flex',
+      justifyContent: 'space-between',
+    }),
+    placeholder: () => ({
+      color: 'black',
+    }),
+    valueContainer: () => ({
+      display: 'flex',
+      alignItems: 'center',
+      padding: 15,
+    }),
+  };
+
   return (
-    <Select
-      value={valueName}
-      onChange={handleChange}
-      options={options}
-      placeholder={valueName}
-      // className="statistic__selector"
-      // classNames={{
-      //   control: (state) =>
-      //     state.isFocused ? 'border-red-800',
-      // }}
-      // styles={{
-      //   borderRadius: '10px',
-      //   color: 'black',
-      // }}
-    />
+    <div className="statistic__selector">
+      <Select
+        value={valueName}
+        onChange={handleChange}
+        options={options}
+        placeholder={valueName}
+        styles={customStyles}
+      />
+    </div>
   );
 }
 
