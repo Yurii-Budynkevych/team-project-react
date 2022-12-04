@@ -8,12 +8,16 @@ import { Logo } from 'components/Logo/Logo';
 import { Outlet } from 'react-router-dom';
 import { Navigation } from '../../components/Navigation/Navigation';
 import { selectIsModalAddTransactionOpen } from '../../redux/Transactions/transactionsSelectors';
+import { selectIsModalOpen } from '../../redux/Modal/modalSelectors';
+import { ModalExit } from '../../components/ModalExit/ModalExit';
 
 export const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isModalAddTransactionOpen = useSelector(
     selectIsModalAddTransactionOpen
   );
+  const modalStatus = useSelector(selectIsModalOpen);
+
 
   return (
     <>
@@ -37,6 +41,7 @@ export const Layout = () => {
       )}
 
       <Outlet />
+      {modalStatus && <ModalExit />}
     </>
   );
 };
