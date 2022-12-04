@@ -13,39 +13,41 @@ import {
   StyledLinkMob,
   Text,
   ImageMob,
+  MainDiv,
 } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
     <>
-      <Nav>
-        <StyledLink to="home">
-          <NavStyled>
-            <Image src={home} alt="IconHome" />
-            <Text>Home</Text>
-          </NavStyled>
-        </StyledLink>
-        <StyledLink to="statistics">
-          <NavStyled>
-            <Image src={statistics} alt="IconStatistics" />
-            <Text>Statistics</Text>
-          </NavStyled>
-        </StyledLink>
-
-        <Balance />
-      </Nav>
+      <MainDiv>
+        <Nav>
+          <StyledLink to="home">
+            <NavStyled>
+              <Image src={home} alt="IconHome" />
+              <Text>Home</Text>
+            </NavStyled>
+          </StyledLink>
+          <StyledLink to="statistics">
+            <NavStyled>
+              <Image src={statistics} alt="IconStatistics" />
+              <Text>Statistics</Text>
+            </NavStyled>
+          </StyledLink>
+        </Nav>
+      </MainDiv>
 
       <DivMob>
         <StyledLinkMob to="home">
-          <ImageMob src={homeMob} alt="" />
+          <ImageMob src={homeMob} alt="home" />
         </StyledLinkMob>
         <StyledLinkMob to="statistics">
-          <ImageMob src={statisticsMob} alt="" />
+          <ImageMob src={statisticsMob} alt="statistic" />
         </StyledLinkMob>
         <StyledLinkMob to="currency">
-          <ImageMob src={currencyMob} alt="" />
+          <ImageMob src={currencyMob} alt="urrency" />
         </StyledLinkMob>
       </DivMob>
+      <Balance />
     </>
   );
 };
