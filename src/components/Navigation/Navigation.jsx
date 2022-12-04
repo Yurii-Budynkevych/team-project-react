@@ -1,3 +1,4 @@
+
 import Media from 'react-media';
 import { Outlet } from 'react-router-dom';
 import { Balance } from 'components/Balance/Balance';
