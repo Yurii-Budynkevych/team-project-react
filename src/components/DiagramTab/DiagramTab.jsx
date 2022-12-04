@@ -16,9 +16,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './DiagramTab.css';
 import { createSaveRoute, createIsHomePage } from '../../redux/Auth/authSlice';
+import { getCurrentPage } from '../../redux/Auth/authOperations';
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
- function DiagramTab() {
+function DiagramTab() {
   const dispatch = useDispatch();
   const [obj, setObj] = useState(null);
   const totalBalance = obj?.periodTotal;
@@ -61,6 +63,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
   };
 
   useEffect(() => {
+    dispatch(getCurrentPage());
     dispatch(createSaveRoute({ save: false }));
     dispatch(createIsHomePage({ isHome: false }));
     async function getStats() {
@@ -79,7 +82,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
   // console.log(obj?.categoriesSummary.length);
 
   return (
-    <div className="statistic">
+    <section className="statistic">
       <h2 className="statistic__title">Statistics</h2>
       <div className="statistic__data">
         <Chart data={data} totalBalance={totalBalance} />
@@ -126,9 +129,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-
-export default DiagramTab
+export default DiagramTab;

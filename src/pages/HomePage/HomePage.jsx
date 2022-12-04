@@ -16,6 +16,7 @@ import {
   selectTransactions,
   selectIsModalAddTransactionOpen,
 } from '../../redux/Transactions/transactionsSelectors';
+import { getCurrentPage } from '../../redux/Auth/authOperations';
 
 export default function HomePage() {
   const isModalAddTransactionOpen = useSelector(
@@ -28,6 +29,7 @@ export default function HomePage() {
     dispatch(createSaveRoute({ save: true }));
     dispatch(createIsHomePage({ isHome: true }));
     dispatch(getTransactions());
+    dispatch(getCurrentPage());
   }, [dispatch]);
   return (
     <>

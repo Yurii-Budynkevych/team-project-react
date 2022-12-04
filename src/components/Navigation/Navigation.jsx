@@ -1,4 +1,6 @@
 import Media from 'react-media';
+import { useSelector } from 'react-redux';
+import { selectCurrentPage } from '../../redux/Auth/authSelectors';
 import { Outlet } from 'react-router-dom';
 import { Balance } from 'components/Balance/Balance';
 import home from '../../img/IconHome.svg';
@@ -22,6 +24,7 @@ import {
 } from './Navigation.styled';
 
 export const Navigation = () => {
+  const currentPage = useSelector(selectCurrentPage);
   return (
     <Wrapper>
       <Media
@@ -44,7 +47,10 @@ export const Navigation = () => {
                     <ImageMob src={currencyMob} alt="urrency" />
                   </StyledLinkMob>
                 </NewDiv>
-                <Balance />
+                {currentPage ===
+                  'http://localhost:3000/team-project-react/home' && (
+                  <Balance />
+                )}
               </DivMob>
             ) : (
               <MainDiv>
