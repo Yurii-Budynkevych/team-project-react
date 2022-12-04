@@ -5,7 +5,6 @@ import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { Logo } from 'components/Logo/Logo';
-import { Outlet } from 'react-router-dom';
 import { Navigation } from '../../components/Navigation/Navigation';
 import { selectIsModalAddTransactionOpen } from '../../redux/Transactions/transactionsSelectors';
 import { selectIsModalOpen } from '../../redux/Modal/modalSelectors';
@@ -17,7 +16,6 @@ export const Layout = () => {
     selectIsModalAddTransactionOpen
   );
   const modalStatus = useSelector(selectIsModalOpen);
-
 
   return (
     <>
@@ -40,7 +38,6 @@ export const Layout = () => {
         <Navigation />
       )}
 
-      <Outlet />
       {modalStatus && <ModalExit />}
     </>
   );

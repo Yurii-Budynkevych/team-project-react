@@ -1,10 +1,11 @@
+import {Outlet} from 'react-router-dom'
 import { Balance } from 'components/Balance/Balance';
 import home from '../../img/IconHome.svg';
 import statistics from '../../img/IconStatistics.svg';
 import homeMob from '../../img/IconHomeMobile.svg';
 import statisticsMob from '../../img/IconStatisticsMobile.svg';
 import currencyMob from '../../img/IconCurrencyMobile.svg';
-import Currency  from '../Currency/Currency'
+import Currency from '../Currency/Currency';
 import {
   DivMob,
   Image,
@@ -19,7 +20,7 @@ import {
 
 export const Navigation = () => {
   return (
-    <>
+    <div style={{display:'flex'}}>
       <MainDiv>
         <Nav>
           <StyledLink to="home">
@@ -35,7 +36,7 @@ export const Navigation = () => {
             </NavStyled>
           </StyledLink>
           <Balance />
-          <Currency/>
+          <Currency />
         </Nav>
       </MainDiv>
 
@@ -49,8 +50,10 @@ export const Navigation = () => {
         <StyledLinkMob to="currency">
           <ImageMob src={currencyMob} alt="urrency" />
         </StyledLinkMob>
+        <Balance />
       </DivMob>
-      <Balance />
-    </>
+      <Outlet/>
+
+    </div>
   );
 };

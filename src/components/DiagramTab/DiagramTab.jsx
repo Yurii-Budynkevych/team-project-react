@@ -18,7 +18,7 @@ import './DiagramTab.css';
 import { createSaveRoute, createIsHomePage } from '../../redux/Auth/authSlice';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function DiagramTab() {
+ function DiagramTab() {
   const dispatch = useDispatch();
   const [obj, setObj] = useState(null);
   const totalBalance = obj?.periodTotal;
@@ -129,3 +129,6 @@ export function DiagramTab() {
     </div>
   );
 }
+
+
+export default DiagramTab

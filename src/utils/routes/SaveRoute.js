@@ -11,7 +11,6 @@ export const SaveRoute = ({ home, login, statistics }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isHomePage = useSelector(selectIsHomePage);
   if (!isLoggedIn) return <Navigate to={login} />;
-//   if (isLoggedIn) return <Navigate to={home} />;
   if (isLoggedIn && isSaveRoute && isHomePage) {
     return <Navigate to={home} />;
   } else {

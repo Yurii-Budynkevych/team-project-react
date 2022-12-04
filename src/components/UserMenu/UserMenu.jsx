@@ -5,7 +5,7 @@ import exitSvg from '../../img/exit.svg';
 import { selectUsername } from 'redux/Auth/authSelectors';
 import { Btn, Name, Img } from './UserMenu.styled';
 import { useMediaQuery } from 'react-responsive';
-import { selectIsModalOpen } from '../../redux/Modal/modalSelectors';
+// import { selectIsModalOpen } from '../../redux/Modal/modalSelectors';
 import { togleModal } from '../../redux/Modal/modalSlice';
 
 export const UserMenu = () => {
@@ -13,7 +13,7 @@ export const UserMenu = () => {
 
   const dispatch = useDispatch();
   const name = useSelector(selectUsername);
-  const modalStatus = useSelector(selectIsModalOpen);
+  // const modalStatus = useSelector(selectIsModalOpen);
 
   return (
     <Box display="flex" alignItems="center">
