@@ -1,4 +1,3 @@
-
 import Media from 'react-media';
 import { useSelector } from 'react-redux';
 import { selectCurrentPage } from '../../redux/Auth/authSelectors';
@@ -21,6 +20,7 @@ import {
   Text,
   ImageMob,
   MainDiv,
+  NewDiv,
 } from './Navigation.styled';
 
 export const Navigation = () => {
@@ -36,15 +36,17 @@ export const Navigation = () => {
           <>
             {matches.small ? (
               <DivMob>
-                <StyledLinkMob to="home">
-                  <ImageMob src={homeMob} alt="home" />
-                </StyledLinkMob>
-                <StyledLinkMob to="statistics">
-                  <ImageMob src={statisticsMob} alt="statistic" />
-                </StyledLinkMob>
-                <StyledLinkMob to="currency">
-                  <ImageMob src={currencyMob} alt="urrency" />
-                </StyledLinkMob>
+                <NewDiv>
+                  <StyledLinkMob to="home">
+                    <ImageMob src={homeMob} alt="home" />
+                  </StyledLinkMob>
+                  <StyledLinkMob to="statistics">
+                    <ImageMob src={statisticsMob} alt="statistic" />
+                  </StyledLinkMob>
+                  <StyledLinkMob to="currency">
+                    <ImageMob src={currencyMob} alt="urrency" />
+                  </StyledLinkMob>
+                </NewDiv>
                 {currentPage ===
                   'http://localhost:3000/team-project-react/home' && (
                   <Balance />
