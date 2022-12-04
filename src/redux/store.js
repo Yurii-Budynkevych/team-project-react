@@ -12,12 +12,13 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import authReducer from './Auth/authSlice';
+import modalReducer from './Modal/modalSlice';
 import transactionsSlice from './Transactions/transactionsSlice';
 
 const persistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token','isSaveRoute','isHomePage'],
+  whitelist: ['token', 'isSaveRoute', 'isHomePage'],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     transactions: transactionsSlice,
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
