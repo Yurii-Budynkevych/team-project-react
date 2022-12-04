@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Select from 'react-select';
-import './Selector.css';
 
 export default function Selector({ options, initialState, changeSelector }) {
   const [valueName, setValueName] = useState(initialState);
@@ -15,7 +14,6 @@ export default function Selector({ options, initialState, changeSelector }) {
     menu: provided => ({
       ...provided,
       width: '100%',
-      // borderBottom: '1px solid black',
       color: 'black',
       padding: 10,
       borderRadius: 10,
