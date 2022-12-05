@@ -12,6 +12,8 @@ import {
   StyledWrapper,
   Title,
   FormContainer,
+  ConfirmPassErrBar,
+  ConfirmPassOkBar,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/Auth/authOperations';
@@ -138,15 +140,17 @@ export const RegisterForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.cpassword}
-                  className={
-                    touched.cpassword && errors.cpassword ? 'error' : null
-                  }
+                  // className={
+                  //   touched.cpassword && errors.cpassword ? 'error' : null
+                  // }
                 />
               </StyledLable>
 
-              {touched.cpassword && errors.cpassword ? (
-                <ErrBox>{errors.cpassword}</ErrBox>
-              ) : null}
+              {touched.cpassword || errors.cpassword ? (
+                <ConfirmPassErrBar />
+              ) : (
+                <ConfirmPassOkBar />
+              )}
             </StyledWrapper>
 
             <StyledWrapper>

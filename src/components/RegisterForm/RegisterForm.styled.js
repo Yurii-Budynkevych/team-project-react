@@ -37,6 +37,25 @@ export const ErrBox = styled.div`
   font-size: 0.8em;
 `;
 
+export const ConfirmPassErrBar = styled.div`
+  position: absolute;
+  top: 30px;
+
+  width: 100%;
+  height: 4px;
+  background-color: #e5f1ef;
+`;
+
+export const ConfirmPassOkBar = styled.div`
+  position: absolute;
+  top: 30px;
+
+  width: 100%;
+  height: 4px;
+  background-color: #24cca7;
+  box-shadow: 0px 1px 8px rgba(36, 204, 167, 0.5);
+`;
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
