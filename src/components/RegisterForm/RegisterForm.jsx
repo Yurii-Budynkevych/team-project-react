@@ -146,7 +146,7 @@ export const RegisterForm = () => {
                 />
               </StyledLable>
 
-              {touched.cpassword || errors.cpassword ? (
+              {touched.cpassword && errors.cpassword ? (
                 <ConfirmPassErrBar />
               ) : (
                 <ConfirmPassOkBar />
