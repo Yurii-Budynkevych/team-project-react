@@ -2,6 +2,12 @@
   display: flex;
 
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    margin-top: 28px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 40px;
+  }
 }
 
 .currency__container {
@@ -10,6 +16,7 @@
   width: 393px;
   height: 347px;
   background-image: url('../../img/images/Currency.png');
+  padding: 20px 44px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -46,6 +53,18 @@
 }
 .currency {
   list-style: none;
+
+  @media screen and (min-width: 768px) {
+    &:not(:last-of-type){
+      margin-bottom: 12px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    &:not(:last-of-type){
+      margin-bottom: 24px;
+    }
+  }
+
 }
 .currency__item {
   display: flex;
@@ -53,21 +72,14 @@
   flex-direction: column;
   padding: 0;
   margin: 0;
-  height: 90px;
   align-items: center;
 }
 .currency__item_header {
+  margin: 0;
   display: flex;
   justify-content: space-between;
   padding: 0;
-  margin: 0px 0 10px 0;
+
   align-items: center;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
+
 }

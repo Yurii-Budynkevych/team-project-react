@@ -5,7 +5,7 @@ export default function TransactionTableRow({ transaction }) {
   const { transactionDate, type, categoryId, comment, amount, balanceAfter } =
     transaction;
   return (
-    <tr className={css.tr}>
+    <tr className={css.table__tr}>
       <td className={css.tdDate}>{`${new Date(transactionDate)
         .getDate()
         .toString()

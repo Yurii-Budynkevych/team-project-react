@@ -67,7 +67,7 @@
 
 .tableRawsWrapper {
   max-height: 60vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 @media ((max-width: 1279px) and (min-width: 768px)) {
@@ -95,8 +95,12 @@
   width: 710px;
   font-family: 'circeRegular';
   font-weight: 400;
+  border-collapse: collapse
 }
-
+.table__tr{
+  border-bottom: 1px solid #dcdcdf;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
 .tableHead {
   border: none;
   justify-content: center;
@@ -138,8 +142,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  border-bottom: 1px solid #dcdcdf;
-  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+
   padding: 15px;
   text-align: center;
   vertical-align: center;

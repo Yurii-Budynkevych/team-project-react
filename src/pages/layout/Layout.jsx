@@ -7,7 +7,6 @@ import { Logo } from 'components/Logo/Logo';
 import { Navigation } from '../../components/Navigation/Navigation';
 import { selectIsModalOpen } from '../../redux/Modal/modalSelectors';
 import { ModalExit } from '../../components/ModalExit/ModalExit';
-
 export const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const modalStatus = useSelector(selectIsModalOpen);
