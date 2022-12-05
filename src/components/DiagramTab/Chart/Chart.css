@@ -24,7 +24,12 @@
     margin-right: 30px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-height: 400px) {
+  .statistic__douhnut {
+    width: 300px;
+    height: 300px;
+
+  }
 }
 @media screen and (min-width: 1280px) {
 }

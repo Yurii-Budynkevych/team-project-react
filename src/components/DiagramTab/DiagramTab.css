@@ -1,10 +1,10 @@
 .statistic {
   min-width: 280px;
-  height: calc(100vh - 200px);
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
+  height: 100vh;
 }
 .statistic__title {
   font-family: Poppins;
@@ -34,7 +34,7 @@
   color: rgb(255, 101, 150);
 }
 .statistic__listTitle {
-  font-family: circe;
+  font-family: 'CirceBold';
   font-weight: 700;
   font-size: 18px;
   display: flex;
@@ -47,7 +47,7 @@
   background-color: whitesmoke;
 }
 .statistic__list {
-  font-family: circe;
+  font-family: 'CirceRegular';
   font-weight: 400;
   font-size: 16px;
   list-style: none;
@@ -59,13 +59,13 @@
   justify-content: space-between;
   padding-left: 20px;
   padding-right: 30px;
-  font-family: circe;
+  font-family: 'CirceBold';
   font-weight: 700;
   font-size: 16px;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .statistic {
-    height: calc(100vh - 110px - 213px);
+    height:100vh;
   }
   .statistic__data {
     flex-direction: row;

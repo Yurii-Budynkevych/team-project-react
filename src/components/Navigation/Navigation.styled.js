@@ -5,6 +5,7 @@ import backgroundImage from '../../img/bg-image.png';
 
 export const Wrapper = styled.div`
   display: flex;
+  height: 100%;
   @media ${breakpoints.maxTablet} {
     flex-direction: column;
     align-items: center;
