@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/team-project-react/static/css/main.cb6c1f7a.css",
+    "main.js": "/team-project-react/static/js/main.f7ae1791.js",
+    "static/media/Circe-Regular.ttf": "/team-project-react/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
+    "static/media/Circe-Bold.ttf": "/team-project-react/static/media/Circe-Bold.d9332714c66b14bb30e5.ttf",
+    "static/media/bg-image.png": "/team-project-react/static/media/bg-image.3af63bcd820f2228424c.png",
+    "static/media/login1x.png": "/team-project-react/static/media/login1x.9ba04be8971316586062.png",
+    "static/media/reg1xdesk.png": "/team-project-react/static/media/reg1xdesk.5d52b14df26fa5db288e.png",
+    "static/media/login1xtab.png": "/team-project-react/static/media/login1xtab.fa07888e831f6341be4d.png",
+    "static/media/reg1xtab.png": "/team-project-react/static/media/reg1xtab.ddae50acd944c8d2a830.png",
+    "static/media/Currency.png": "/team-project-react/static/media/Currency.7e53f5630f9a15720701.png",
+    "static/media/Currency_tab.png": "/team-project-react/static/media/Currency_tab.55e3aaa381e9ea1a0c73.png",
+    "static/media/Currency_mob.png": "/team-project-react/static/media/Currency_mob.1eaaaff48f16491283e1.png",
+    "static/media/Logo.svg": "/team-project-react/static/media/Logo.d7adee0ab11608d013165fe6f2dc76e8.svg",
+    "static/media/IconStatisticsMobile.svg": "/team-project-react/static/media/IconStatisticsMobile.cc8eb6eea88e61462b521deeadcdadad.svg",
+    "static/media/IconStatistics.svg": "/team-project-react/static/media/IconStatistics.104f75e333cfc7103d67dff96d8a5147.svg",
+    "static/media/transaction-modal-open.svg": "/team-project-react/static/media/transaction-modal-open.c91caba810b5744706dca694c1854b2d.svg",
+    "static/media/IconCurrencyMobile.svg": "/team-project-react/static/media/IconCurrencyMobile.d0bede66a90e4d001ab5bddba42e726d.svg",
+    "static/media/expense-type.svg": "/team-project-react/static/media/expense-type.f01bdfed955bb4daf4c10778fd7039e9.svg",
+    "index.html": "/team-project-react/index.html",
+    "static/media/exit.svg": "/team-project-react/static/media/exit.68a6430100c84f3315fe87a326c27dcc.svg",
+    "static/media/baseline-lock-24px 1.svg": "/team-project-react/static/media/baseline-lock-24px 1.1113bcea39ca0dcc0f225030272624f5.svg",
+    "static/media/baseline-account_box-24px 1.svg": "/team-project-react/static/media/baseline-account_box-24px 1.af484f809012fd82b5471b2c79b04a60.svg",
+    "static/media/baseline-email-24px 1.svg": "/team-project-react/static/media/baseline-email-24px 1.c09490ca0a62215de55cfbf0e13c35c2.svg",
+    "static/media/IconHomeMobile.svg": "/team-project-react/static/media/IconHomeMobile.7bb7687f8c8e2af95acaec211ef60ddc.svg",
+    "static/media/IconHome.svg": "/team-project-react/static/media/IconHome.27bed7c3fdedc7441fc266a1eb756e4f.svg",
+    "static/media/close.svg": "/team-project-react/static/media/close.4ca60f1813426122dabf98a3268fb691.svg",
+    "main.cb6c1f7a.css.map": "/team-project-react/static/css/main.cb6c1f7a.css.map",
+    "main.f7ae1791.js.map": "/team-project-react/static/js/main.f7ae1791.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb6c1f7a.css",
+    "static/js/main.f7ae1791.js"
+  ]
+}
