@@ -60,8 +60,10 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
+    const { username, email, password } = values;
     actions.setSubmitting(true);
     dispatch(register(values));
+    dispatch(register({ username, email, password }));
     actions.resetForm();
     actions.setSubmitting(false);
   };
