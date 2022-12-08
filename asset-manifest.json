@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/team-project-react/static/css/main.cb6c1f7a.css",
-    "main.js": "/team-project-react/static/js/main.02901bd5.js",
+    "main.js": "/team-project-react/static/js/main.d86925bb.js",
     "static/media/Circe-Regular.ttf": "/team-project-react/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
     "static/media/Circe-Bold.ttf": "/team-project-react/static/media/Circe-Bold.d9332714c66b14bb30e5.ttf",
     "static/media/bg-image.png": "/team-project-react/static/media/bg-image.3af63bcd820f2228424c.png",
@@ -27,10 +27,10 @@
     "static/media/IconHome.svg": "/team-project-react/static/media/IconHome.27bed7c3fdedc7441fc266a1eb756e4f.svg",
     "static/media/close.svg": "/team-project-react/static/media/close.4ca60f1813426122dabf98a3268fb691.svg",
     "main.cb6c1f7a.css.map": "/team-project-react/static/css/main.cb6c1f7a.css.map",
-    "main.02901bd5.js.map": "/team-project-react/static/js/main.02901bd5.js.map"
+    "main.d86925bb.js.map": "/team-project-react/static/js/main.d86925bb.js.map"
   },
   "entrypoints": [
     "static/css/main.cb6c1f7a.css",
-    "static/js/main.02901bd5.js"
+    "static/js/main.d86925bb.js"
   ]
 }
