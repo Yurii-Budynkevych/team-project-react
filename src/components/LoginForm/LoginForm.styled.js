@@ -80,6 +80,7 @@ export const StyledInput = styled.input`
 `;
 
 export const Btn = styled.button`
+  cursor: pointer;
   width: 300px;
   height: 50px;
   background-color: #24cca7;

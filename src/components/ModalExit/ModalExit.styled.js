@@ -39,6 +39,7 @@ export const Text = styled.p`
 `;
 
 export const Btn = styled.button`
+  cursor: pointer;
   background-color: #ffffff;
   border: 1px solid #4a56e2;
   border-radius: 8px;
